@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="false" isInheritAttributeMapping="false" maskOgnlValues="false" isInheritExtendedContractAttributes="false" name="AirwatchAdapter" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="API Hostname">https://cn.eucse.com/API</urn:Field>
+        <urn:Field name="API Key">e3Az2aakZZLuXcPtnbNYWdrrk1G052ufX4ZmScAAjs8=</urn:Field>
+        <urn:Field name="Username">PIngTest</urn:Field>
+        <urn:Field name="Password">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..hXdO0Q3itKXonI57005sEg.5GBynQcXTbk71ECGSESt4g.FM4gHxoN_FjLqgKmS9mjvw</urn:Field>
+    </urn:Fields>
+    <urn:AdvancedFields/>
+    <urn:Tables/>
+    <urn:ExtendedContractAttributes/>
+    <urn:UniqueKeyField>UserName</urn:UniqueKeyField>
+    <urn:AttributeMapping>
+        <urn1:AttributeMap Name="OperatingSystem" Type="Adapter" Value="OperatingSystem" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="IsSupervised" Type="Adapter" Value="IsSupervised" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="Ownership" Type="Adapter" Value="Ownership" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="Platform" Type="Adapter" Value="Platform" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="EasId" Type="Adapter" Value="EasId" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="Imei" Type="Adapter" Value="Imei" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="UserEmailAddress" Type="Adapter" Value="UserEmailAddress" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="AssetNumber" Type="Adapter" Value="AssetNumber" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="LastSeen" Type="Adapter" Value="LastSeen" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="EnrollmentStatus" Type="Adapter" Value="EnrollmentStatus" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="IsRemoteManagementEnabled" Type="Adapter" Value="IsRemoteManagementEnabled" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="LocationGroupName" Type="Adapter" Value="LocationGroupName" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="AcLineStatus" Type="Adapter" Value="AcLineStatus" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="DataEncryptionYN" Type="Adapter" Value="DataEncryptionYN" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="CompromisedStatus" Type="Adapter" Value="CompromisedStatus" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="UserName" Type="Adapter" Value="UserName" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="ComplianceStatus" Type="Adapter" Value="ComplianceStatus" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="DeviceFriendlyName" Type="Adapter" Value="DeviceFriendlyName" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="MacAddress" Type="Adapter" Value="MacAddress" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="VirtualMemory" Type="Adapter" Value="VirtualMemory" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="OEMInfo" Type="Adapter" Value="OEMInfo" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="LastComplianceCheckOn" Type="Adapter" Value="LastComplianceCheckOn" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="SerialNumber" Type="Adapter" Value="SerialNumber" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="Model" Type="Adapter" Value="Model" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="PhoneNumber" Type="Adapter" Value="PhoneNumber" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="LastCompromisedCheckOn" Type="Adapter" Value="LastCompromisedCheckOn" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="LastEnrolledOn" Type="Adapter" Value="LastEnrolledOn" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:TokenAuthorizationIssuanceCriterion AttrName="Ownership" AttrSourceType="Adapter" ComparisonValue="E" ErrorResult="" Expr="" Condition="not-equal"/>
+            <urn1:TokenAuthorizationIssuanceCriterion AttrName="CompromisedStatus" AttrSourceType="Adapter" ComparisonValue="True" ErrorResult="" Expr="" Condition="not-equal"/>
+            <urn1:TokenAuthorizationIssuanceCriterion AttrName="ComplianceStatus" AttrSourceType="Adapter" ComparisonValue="Compliant" ErrorResult="" Expr="" Condition="equals-case-insensitive"/>
+        </urn1:TokenAuthorizationIssuanceCriteria>
+    </urn:AttributeMapping>
+</urn:AdapterConfiguration>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:PluginConfiguration isInheritExtendedContractAttributes="false" name="Mobile Client Selector" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Header Name">User-Agent</urn:Field>
+        <urn:Field name="Case-Sensitive Matching">true</urn:Field>
+    </urn:Fields>
+    <urn:AdvancedFields/>
+    <urn:Tables>
+        <urn:Table name="Results">
+            <urn:Row>
+                <urn:Field name="Match Expression">iPhone</urn:Field>
+            </urn:Row>
+            <urn:Row>
+                <urn:Field name="Match Expression">Android</urn:Field>
+            </urn:Row>
+            <urn:Row>
+                <urn:Field name="Match Expression">iPad</urn:Field>
+            </urn:Row>
+        </urn:Table>
+    </urn:Tables>
+</urn:PluginConfiguration>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:Clients xmlns:urn="urn:pingidentity.com:pf:oauth:client">
+    <urn:Client client_id="im_client" name="Implicit Client" logo="" secret="AaK9yTvdFTDTh_hjbGYnAufihmL9v3VV7mEHtOxiD_A._Uqa8fdj.2" persistentGrantExpirationTime="0" enabled="true" lastModified="2019-02-19T14:37:34.804Z" bypassApprovalPage="false" restrictScopes="false" jwksUri="" jwks="" clientAuthnType="NONE" enforceOneTimeJWT="false" isRequireSignedRequest="false">
+        <urn:Description/>
+        <urn:Grant type="implicit"/>
+        <urn:RedirectUri>https://localhost:9031/OAuthPlayground/implicit/callback</urn:RedirectUri>
+        <urn:SupplementalInfo key="ALLOW_EXCLUSIVE_SCOPES" value="false"/>
+        <urn:SupplementalInfo key="DEVICE_FLOW_SETTING" value="SERVER_DEFAULT"/>
+        <urn:SupplementalInfo key="PING_ACCESS_LOGOUT_CAPABLE" value="false"/>
+        <urn:SupplementalInfo key="RESTRICT_RESPONSE_TYPES" value="false"/>
+        <urn:SupplementalInfo key="ACCESS_SESSION_REVOCATION_API" value="false"/>
+        <urn:SupplementalInfo key="REVERSIBLE_SECRET" value="eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjIuMS4xIn0..gfLq9IXwHe4koDwyrlr83Q.JG1hQcwE9H0_z_lDGSFxnZd4lOoEZKmf-dGEwkYNGFxbQDjll2NUvX_b1fKsLgTjaRMRNPvb4t_d2zEtNj6Y5NO0ftu2vpAE2-Vg64gtqEs.HEWzcbkaSqjMfCffOsyfUg"/>
+        <urn:SupplementalInfo key="PERSISTENT_GRANT_IDLE_TIMEOUT_TYPE" value="SERVER_DEFAULT"/>
+        <urn:SupplementalInfo key="VALIDATE_USING_ALL_ELIGIBLE_ATMS" value="false"/>
+        <urn:SupplementalInfo key="ENABLED" value="true"/>
+        <urn:SupplementalInfo key="id_token_signed_response_alg" value="HS256"/>
+    </urn:Client>
+</urn:Clients>

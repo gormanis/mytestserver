@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration isInheritExtendedContractAttributes="false" name="com.pingidentity.plugins.datastore.p14c.PingOneForCustomersDataStore" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Environment ID">683dc220-bc54-4354-b911-650e62e1466c</urn:Field>
+        <urn:Field name="Client ID">7490b447-fcdf-46d4-afb0-6d7f89a7b745</urn:Field>
+        <urn:Field name="Client Secret">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..XUE261EN6pKNEKLuPhpjOA.cobGKfPQJ-j3FmLNd6BunNgMMAaFV-Vec2rlBUY1JoY13AfXMOhdN2lnXItLVVNrO41Vi7A5fDqO4zQhHxCnrqBgIKflCo1vnaJJcR1foc4.i_Uh5TPESgTw9h-F83OJJg</urn:Field>
+        <urn:Field name="PingOne API Service">https://api.pingone.eu/v1</urn:Field>
+        <urn:Field name="PingOne Authorization Service">https://auth.pingone.eu</urn:Field>
+        <urn:Field name="Read Timeout">10000</urn:Field>
+        <urn:Field name="Connection Timeout">10000</urn:Field>
+        <urn:Field name="Retry Request">true</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">429</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="PingOne API Service">https://api.pingone.eu/v1</urn:Field>
+        <urn:Field name="PingOne Authorization Service">https://auth.pingone.eu</urn:Field>
+        <urn:Field name="Read Timeout">10000</urn:Field>
+        <urn:Field name="Connection Timeout">10000</urn:Field>
+        <urn:Field name="Retry Request">true</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">429</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:AdvancedFields>
+    <urn:Tables>
+        <urn:Table name="Custom Attributes Details"/>
+    </urn:Tables>
+</urn:AdapterConfiguration>

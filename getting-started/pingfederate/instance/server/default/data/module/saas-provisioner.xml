@@ -1,1 +1,1522 @@
-<saasProvisioner version="1.0" enableSaasProvisionerGUI="false" internalDataSourceId="ProvisionerDS" syncInterval="60" encryptDBSaasIdentities="true" xmlns="http://pingidentity.com/2008/06/saas-provisioner"/>
+<saasProvisioner version="1.0" enableSaasProvisionerGUI="true" internalDataSourceId="ProvisionerDS" syncInterval="300" encryptDBSaasIdentities="true" xmlns="http://pingidentity.com/2008/06/saas-provisioner">
+  <saasProvisionerEntity>
+    <entityId>https://geolykos-dev-ed.my.salesforce.com</entityId>
+    <target id="Salesforce">
+      <parameter name="CLIENT_ID" value="3MVG9fTLmJ60pJ5LwJ9lVSrRCGJqfGbU9i5fYnaFBhEwidGyjAeZ2hPACvhGRJ_UhOPQkkOubHO_4UFH0689."/>
+      <parameter name="CLIENT_SECRET" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..EdOAYMzvrTpjMm5x8Khf9w.MCNOy_My5HxqihQUgHhEbQvEkOAiCwyQEzvOTBUkLsgFGbYZWbI7rohJyC1g6d1UssVZWTL9JBmKkVhfxesh-hLW4sohxa1_w_cnSp1l1gU.UG0PzKd6ifwIfyxzS0zNtg"/>
+      <parameter name="OAUTH_ACCESS_TOKEN" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..M6D7ClTtZOMsMoWYun4eGQ.iyxOuvdMbHbUoYFBJu4_3Iyobhb5ROR1Qxn2f7N-d_qzxuYMDlOFxxMTbyMnbkhCkc3a6DD797acO9QaIqo15CPqslza6tRnovwyK2zSo6ENvfZ3RaqwV3LDiA8q1vfXDLZISctVr1eHfSIU7lkEtULnIPRFaunTCj-16sjBoC0.VEfQ3bDNtvAaK4zxuv6XPQ"/>
+      <parameter name="OAUTH_REFRESH_TOKEN" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..v6A7KC565suiBv3SjcWkVQ.LIjaXMNCGdNO9whySiy07dkk94nEH6DzTn7d28vdHHTYoBEwSR7J0e5S3EDiMd0tc5g2VHAz6mwxiy9odWpy5ZG8ZHCzDEiIFmLLEPaXtmKDYP4H7ZN85jZyVmgEWWSj.aBHllUwH5a7Z3wTOEYPmnw"/>
+      <parameter name="SUBDOMAIN" value="geolykos-dev-ed.my"/>
+      <parameter name="Provisioning Options" value=""/>
+      <parameter name="CREATE_NEW_USERS" value="true"/>
+      <parameter name="UPDATE_NEW_USERS" value="true"/>
+      <parameter name="DISABLE_USERS" value="true"/>
+      <parameter name="FREEZE_USER_FLAG" value="false"/>
+      <parameter name="PROVISION_DISABLED_USERS" value="true"/>
+    </target>
+    <channel id="4" name="testchannel" active="true">
+      <maxThreads>1</maxThreads>
+      <timeout>60</timeout>
+      <source dataSourceId="LDAP-CCE90DCFE90269C4C060D97ABD3A1A3DD8E532B3">
+        <ldapGuidFormatter guidAttributeName="objectGUID" guidIsBinary="true"/>
+        <usersBaseDN>DC=corp,DC=geolykos,DC=com</usersBaseDN>
+        <groupDN>CN=Users,DC=corp,DC=geolykos,DC=com</groupDN>
+        <memberOfGroupAttributeName>memberof</memberOfGroupAttributeName>
+        <groupMemberAttributeName>member</groupMemberAttributeName>
+        <changedUsersAlgorithm>Active Directory USN</changedUsersAlgorithm>
+        <usnAttributeName>uSNChanged</usnAttributeName>
+        <timestampAttributeName>modifyTimestamp</timestampAttributeName>
+        <userObjectClass>user</userObjectClass>
+        <groupObjectClass>group</groupObjectClass>
+        <directoryIdentityAttributesMapper statusReader="Active Directory Bitmap">
+          <attributeName>userAccountControl</attributeName>
+          <default>true</default>
+        </directoryIdentityAttributesMapper>
+        <userNestedSearch>false</userNestedSearch>
+        <groupNestedSearch>false</groupNestedSearch>
+      </source>
+      <saasUsernameFieldCode>Username</saasUsernameFieldCode>
+      <identityMappingField fieldName="Username">
+        <fieldInfo code="Username" label="Username">
+          <required>true</required>
+          <unique>true</unique>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>mail</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="CommunityNickname">
+        <fieldInfo code="CommunityNickname" label="Community Nickname">
+          <unique>true</unique>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Alias">
+        <fieldInfo code="Alias" label="Alias">
+          <required>true</required>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>sAMAccountName</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="Email">
+        <fieldInfo code="Email" label="Email">
+          <required>true</required>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>mail</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="EmailEncodingKey">
+        <fieldInfo code="EmailEncodingKey" label="Email Encoding Key">
+          <required>true</required>
+          <option code="UTF-8" label="UTF-8"/>
+          <option code="ISO-8859-1" label="ISO-8859-1"/>
+          <option code="Shift_JIS" label="Shift_JIS"/>
+          <option code="ISO-2022-JP" label="ISO-2022-JP"/>
+          <option code="EUC-JP" label="EUC-JP"/>
+          <option code="ks_c_5601-1987" label="ks_c_5601-1987"/>
+          <option code="Big5" label="Big5"/>
+          <option code="GB2312" label="GB2312"/>
+          <option code="Big5-HKSCS" label="Big5-HKSCS"/>
+          <option code="x-SJIS_0213" label="x-SJIS_0213"/>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>UTF-8</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="LanguageLocaleKey">
+        <fieldInfo code="LanguageLocaleKey" label="Language Locale Key">
+          <required>true</required>
+          <option code="en_US" label="en_US"/>
+          <option code="de" label="de"/>
+          <option code="es" label="es"/>
+          <option code="fr" label="fr"/>
+          <option code="it" label="it"/>
+          <option code="ja" label="ja"/>
+          <option code="sv" label="sv"/>
+          <option code="ko" label="ko"/>
+          <option code="zh_TW" label="zh_TW"/>
+          <option code="zh_CN" label="zh_CN"/>
+          <option code="pt_BR" label="pt_BR"/>
+          <option code="nl_NL" label="nl_NL"/>
+          <option code="da" label="da"/>
+          <option code="th" label="th"/>
+          <option code="fi" label="fi"/>
+          <option code="ru" label="ru"/>
+          <option code="es_MX" label="es_MX"/>
+          <option code="no" label="no"/>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>en_US</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="LastName">
+        <fieldInfo code="LastName" label="Last Name">
+          <required>true</required>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>sn</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="LocaleSidKey">
+        <fieldInfo code="LocaleSidKey" label="Locale Sid Key">
+          <required>true</required>
+          <option code="sq_AL" label="sq_AL"/>
+          <option code="ar_DZ" label="ar_DZ"/>
+          <option code="ar_BH" label="ar_BH"/>
+          <option code="ar_EG" label="ar_EG"/>
+          <option code="ar_IQ" label="ar_IQ"/>
+          <option code="ar_JO" label="ar_JO"/>
+          <option code="ar_KW" label="ar_KW"/>
+          <option code="ar_LB" label="ar_LB"/>
+          <option code="ar_LY" label="ar_LY"/>
+          <option code="ar_MA" label="ar_MA"/>
+          <option code="ar_OM" label="ar_OM"/>
+          <option code="ar_QA" label="ar_QA"/>
+          <option code="ar_SA" label="ar_SA"/>
+          <option code="ar_SD" label="ar_SD"/>
+          <option code="ar_SY" label="ar_SY"/>
+          <option code="ar_TN" label="ar_TN"/>
+          <option code="ar_AE" label="ar_AE"/>
+          <option code="ar_YE" label="ar_YE"/>
+          <option code="hy_AM" label="hy_AM"/>
+          <option code="az_AZ" label="az_AZ"/>
+          <option code="bn_BD" label="bn_BD"/>
+          <option code="eu_ES" label="eu_ES"/>
+          <option code="be_BY" label="be_BY"/>
+          <option code="bs_BA" label="bs_BA"/>
+          <option code="bg_BG" label="bg_BG"/>
+          <option code="my_MM" label="my_MM"/>
+          <option code="ca_ES" label="ca_ES"/>
+          <option code="zh_CN_PINYIN" label="zh_CN_PINYIN"/>
+          <option code="zh_CN_STROKE" label="zh_CN_STROKE"/>
+          <option code="zh_CN" label="zh_CN"/>
+          <option code="zh_HK_STROKE" label="zh_HK_STROKE"/>
+          <option code="zh_HK" label="zh_HK"/>
+          <option code="zh_MO" label="zh_MO"/>
+          <option code="zh_SG" label="zh_SG"/>
+          <option code="zh_TW_STROKE" label="zh_TW_STROKE"/>
+          <option code="zh_TW" label="zh_TW"/>
+          <option code="hr_HR" label="hr_HR"/>
+          <option code="cs_CZ" label="cs_CZ"/>
+          <option code="da_DK" label="da_DK"/>
+          <option code="nl_AW" label="nl_AW"/>
+          <option code="nl_BE" label="nl_BE"/>
+          <option code="nl_NL" label="nl_NL"/>
+          <option code="nl_SR" label="nl_SR"/>
+          <option code="dz_BT" label="dz_BT"/>
+          <option code="en_AG" label="en_AG"/>
+          <option code="en_AU" label="en_AU"/>
+          <option code="en_BS" label="en_BS"/>
+          <option code="en_BB" label="en_BB"/>
+          <option code="en_BZ" label="en_BZ"/>
+          <option code="en_BM" label="en_BM"/>
+          <option code="en_BW" label="en_BW"/>
+          <option code="en_CM" label="en_CM"/>
+          <option code="en_CA" label="en_CA"/>
+          <option code="en_KY" label="en_KY"/>
+          <option code="en_ER" label="en_ER"/>
+          <option code="en_FK" label="en_FK"/>
+          <option code="en_FJ" label="en_FJ"/>
+          <option code="en_GM" label="en_GM"/>
+          <option code="en_GH" label="en_GH"/>
+          <option code="en_GI" label="en_GI"/>
+          <option code="en_GY" label="en_GY"/>
+          <option code="en_HK" label="en_HK"/>
+          <option code="en_IN" label="en_IN"/>
+          <option code="en_ID" label="en_ID"/>
+          <option code="en_IE" label="en_IE"/>
+          <option code="en_JM" label="en_JM"/>
+          <option code="en_KE" label="en_KE"/>
+          <option code="en_LR" label="en_LR"/>
+          <option code="en_MG" label="en_MG"/>
+          <option code="en_MW" label="en_MW"/>
+          <option code="en_MY" label="en_MY"/>
+          <option code="en_MU" label="en_MU"/>
+          <option code="en_NA" label="en_NA"/>
+          <option code="en_NZ" label="en_NZ"/>
+          <option code="en_NG" label="en_NG"/>
+          <option code="en_PK" label="en_PK"/>
+          <option code="en_PG" label="en_PG"/>
+          <option code="en_PH" label="en_PH"/>
+          <option code="en_RW" label="en_RW"/>
+          <option code="en_WS" label="en_WS"/>
+          <option code="en_SC" label="en_SC"/>
+          <option code="en_SL" label="en_SL"/>
+          <option code="en_SG" label="en_SG"/>
+          <option code="en_SX" label="en_SX"/>
+          <option code="en_SB" label="en_SB"/>
+          <option code="en_ZA" label="en_ZA"/>
+          <option code="en_SH" label="en_SH"/>
+          <option code="en_SZ" label="en_SZ"/>
+          <option code="en_TZ" label="en_TZ"/>
+          <option code="en_TO" label="en_TO"/>
+          <option code="en_TT" label="en_TT"/>
+          <option code="en_UG" label="en_UG"/>
+          <option code="en_GB" label="en_GB"/>
+          <option code="en_US" label="en_US"/>
+          <option code="en_VU" label="en_VU"/>
+          <option code="et_EE" label="et_EE"/>
+          <option code="fi_FI" label="fi_FI"/>
+          <option code="fr_BE" label="fr_BE"/>
+          <option code="fr_CA" label="fr_CA"/>
+          <option code="fr_KM" label="fr_KM"/>
+          <option code="fr_FR" label="fr_FR"/>
+          <option code="fr_GN" label="fr_GN"/>
+          <option code="fr_HT" label="fr_HT"/>
+          <option code="fr_LU" label="fr_LU"/>
+          <option code="fr_MR" label="fr_MR"/>
+          <option code="fr_MC" label="fr_MC"/>
+          <option code="fr_CH" label="fr_CH"/>
+          <option code="fr_WF" label="fr_WF"/>
+          <option code="ka_GE" label="ka_GE"/>
+          <option code="de_AT" label="de_AT"/>
+          <option code="de_DE" label="de_DE"/>
+          <option code="de_LU" label="de_LU"/>
+          <option code="de_CH" label="de_CH"/>
+          <option code="el_GR" label="el_GR"/>
+          <option code="iw_IL" label="iw_IL"/>
+          <option code="hi_IN" label="hi_IN"/>
+          <option code="hu_HU" label="hu_HU"/>
+          <option code="is_IS" label="is_IS"/>
+          <option code="in_ID" label="in_ID"/>
+          <option code="ga_IE" label="ga_IE"/>
+          <option code="it_IT" label="it_IT"/>
+          <option code="it_CH" label="it_CH"/>
+          <option code="ja_JP" label="ja_JP"/>
+          <option code="kk_KZ" label="kk_KZ"/>
+          <option code="km_KH" label="km_KH"/>
+          <option code="ko_KP" label="ko_KP"/>
+          <option code="ko_KR" label="ko_KR"/>
+          <option code="ky_KG" label="ky_KG"/>
+          <option code="lo_LA" label="lo_LA"/>
+          <option code="lv_LV" label="lv_LV"/>
+          <option code="lt_LT" label="lt_LT"/>
+          <option code="lu_CD" label="lu_CD"/>
+          <option code="lb_LU" label="lb_LU"/>
+          <option code="mk_MK" label="mk_MK"/>
+          <option code="ms_BN" label="ms_BN"/>
+          <option code="ms_MY" label="ms_MY"/>
+          <option code="mt_MT" label="mt_MT"/>
+          <option code="sh_ME" label="sh_ME"/>
+          <option code="ne_NP" label="ne_NP"/>
+          <option code="no_NO" label="no_NO"/>
+          <option code="ps_AF" label="ps_AF"/>
+          <option code="fa_IR" label="fa_IR"/>
+          <option code="pl_PL" label="pl_PL"/>
+          <option code="pt_AO" label="pt_AO"/>
+          <option code="pt_BR" label="pt_BR"/>
+          <option code="pt_CV" label="pt_CV"/>
+          <option code="pt_MZ" label="pt_MZ"/>
+          <option code="pt_PT" label="pt_PT"/>
+          <option code="pt_ST" label="pt_ST"/>
+          <option code="ro_MD" label="ro_MD"/>
+          <option code="ro_RO" label="ro_RO"/>
+          <option code="rm_CH" label="rm_CH"/>
+          <option code="rn_BI" label="rn_BI"/>
+          <option code="ru_RU" label="ru_RU"/>
+          <option code="sr_BA" label="sr_BA"/>
+          <option code="sr_CS" label="sr_CS"/>
+          <option code="sh_BA" label="sh_BA"/>
+          <option code="sh_CS" label="sh_CS"/>
+          <option code="sr_RS" label="sr_RS"/>
+          <option code="sk_SK" label="sk_SK"/>
+          <option code="sl_SI" label="sl_SI"/>
+          <option code="so_DJ" label="so_DJ"/>
+          <option code="so_SO" label="so_SO"/>
+          <option code="es_AR" label="es_AR"/>
+          <option code="es_BO" label="es_BO"/>
+          <option code="es_CL" label="es_CL"/>
+          <option code="es_CO" label="es_CO"/>
+          <option code="es_CR" label="es_CR"/>
+          <option code="es_CU" label="es_CU"/>
+          <option code="es_DO" label="es_DO"/>
+          <option code="es_EC" label="es_EC"/>
+          <option code="es_SV" label="es_SV"/>
+          <option code="es_GT" label="es_GT"/>
+          <option code="es_HN" label="es_HN"/>
+          <option code="es_MX" label="es_MX"/>
+          <option code="es_NI" label="es_NI"/>
+          <option code="es_PA" label="es_PA"/>
+          <option code="es_PY" label="es_PY"/>
+          <option code="es_PE" label="es_PE"/>
+          <option code="es_PR" label="es_PR"/>
+          <option code="es_ES" label="es_ES"/>
+          <option code="es_US" label="es_US"/>
+          <option code="es_UY" label="es_UY"/>
+          <option code="es_VE" label="es_VE"/>
+          <option code="sv_SE" label="sv_SE"/>
+          <option code="tl_PH" label="tl_PH"/>
+          <option code="tg_TJ" label="tg_TJ"/>
+          <option code="ta_IN" label="ta_IN"/>
+          <option code="ta_LK" label="ta_LK"/>
+          <option code="th_TH" label="th_TH"/>
+          <option code="ti_ET" label="ti_ET"/>
+          <option code="tr_TR" label="tr_TR"/>
+          <option code="uk_UA" label="uk_UA"/>
+          <option code="ur_PK" label="ur_PK"/>
+          <option code="uz_LATN_UZ" label="uz_LATN_UZ"/>
+          <option code="vi_VN" label="vi_VN"/>
+          <option code="cy_GB" label="cy_GB"/>
+          <option code="yo_BJ" label="yo_BJ"/>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>en_US</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="ProfileId">
+        <fieldInfo code="ProfileId" label="Profile Id">
+          <required>true</required>
+          <option code="00e1t000001h3g8AAA" label="System Administrator"/>
+          <option code="00e1t000001h3g9AAA" label="Chatter Free User"/>
+          <option code="00e1t000001h3gAAAQ" label="Analytics Cloud Integration User"/>
+          <option code="00e1t000001h3gBAAQ" label="Analytics Cloud Security User"/>
+          <option code="00e1t000001h3gEAAQ" label="Standard Platform User"/>
+          <option code="00e1t000001h3gFAAQ" label="Customer Community Login User"/>
+          <option code="00e1t000001h3gGAAQ" label="Cross Org Data Proxy User"/>
+          <option code="00e1t000001h3gHAAQ" label="Authenticated Website"/>
+          <option code="00e1t000001h3gIAAQ" label="Work.com Only User"/>
+          <option code="00e1t000001h3gJAAQ" label="Customer Portal Manager Custom"/>
+          <option code="00e1t000001h3gKAAQ" label="Identity User"/>
+          <option code="00e1t000001h3gLAAQ" label="Customer Community Plus User"/>
+          <option code="00e1t000001h3gMAAQ" label="Silver Partner User"/>
+          <option code="00e1t000001h3gNAAQ" label="High Volume Customer Portal"/>
+          <option code="00e1t000001h3gOAAQ" label="Gold Partner User"/>
+          <option code="00e1t000001h3gPAAQ" label="Customer Portal Manager Standard"/>
+          <option code="00e1t000001h3gQAAQ" label="Force.com - App Subscription User"/>
+          <option code="00e1t000001h3gRAAQ" label="Customer Community Plus Login User"/>
+          <option code="00e1t000001h3gSAAQ" label="Partner App Subscription User"/>
+          <option code="00e1t000001h3gTAAQ" label="External Identity User"/>
+          <option code="00e1t000001h3gUAAQ" label="Partner Community User"/>
+          <option code="00e1t000001h3gVAAQ" label="Partner Community Login User"/>
+          <option code="00e1t000001h3gWAAQ" label="Customer Community User"/>
+          <option code="00e1t000001h3gXAAQ" label="Force.com - Free User"/>
+          <option code="00e1t000001h3gYAAQ" label="Chatter Moderator User"/>
+          <option code="00e1t000001h3gZAAQ" label="Chatter External User"/>
+          <option code="00e1t000001h3gaAAA" label="High Volume Customer Portal User"/>
+          <option code="00e1t000001h3gbAAA" label="Authenticated Website"/>
+          <option code="00e1t000001h3gcAAA" label="Solution Manager"/>
+          <option code="00e1t000001h3gdAAA" label="Read Only"/>
+          <option code="00e1t000001h3geAAA" label="Custom: Sales Profile"/>
+          <option code="00e1t000001h3gfAAA" label="Custom: Marketing Profile"/>
+          <option code="00e1t000001h3ggAAA" label="Custom: Support Profile"/>
+          <option code="00e1t000001h3ghAAA" label="Marketing User"/>
+          <option code="00e1t000001h3giAAA" label="Contract Manager"/>
+          <option code="00e1t000001h3gjAAA" label="Standard User"/>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>mail</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="TimeZoneSidKey">
+        <fieldInfo code="TimeZoneSidKey" label="Time Zone Sid Key">
+          <required>true</required>
+          <option code="Pacific/Kiritimati" label="Pacific/Kiritimati"/>
+          <option code="Pacific/Enderbury" label="Pacific/Enderbury"/>
+          <option code="Pacific/Tongatapu" label="Pacific/Tongatapu"/>
+          <option code="Pacific/Chatham" label="Pacific/Chatham"/>
+          <option code="Asia/Kamchatka" label="Asia/Kamchatka"/>
+          <option code="Pacific/Auckland" label="Pacific/Auckland"/>
+          <option code="Pacific/Fiji" label="Pacific/Fiji"/>
+          <option code="Pacific/Guadalcanal" label="Pacific/Guadalcanal"/>
+          <option code="Pacific/Norfolk" label="Pacific/Norfolk"/>
+          <option code="Australia/Lord_Howe" label="Australia/Lord_Howe"/>
+          <option code="Australia/Brisbane" label="Australia/Brisbane"/>
+          <option code="Australia/Sydney" label="Australia/Sydney"/>
+          <option code="Australia/Adelaide" label="Australia/Adelaide"/>
+          <option code="Australia/Darwin" label="Australia/Darwin"/>
+          <option code="Asia/Seoul" label="Asia/Seoul"/>
+          <option code="Asia/Tokyo" label="Asia/Tokyo"/>
+          <option code="Asia/Hong_Kong" label="Asia/Hong_Kong"/>
+          <option code="Asia/Kuala_Lumpur" label="Asia/Kuala_Lumpur"/>
+          <option code="Asia/Manila" label="Asia/Manila"/>
+          <option code="Asia/Shanghai" label="Asia/Shanghai"/>
+          <option code="Asia/Singapore" label="Asia/Singapore"/>
+          <option code="Asia/Taipei" label="Asia/Taipei"/>
+          <option code="Australia/Perth" label="Australia/Perth"/>
+          <option code="Asia/Bangkok" label="Asia/Bangkok"/>
+          <option code="Asia/Ho_Chi_Minh" label="Asia/Ho_Chi_Minh"/>
+          <option code="Asia/Jakarta" label="Asia/Jakarta"/>
+          <option code="Asia/Rangoon" label="Asia/Rangoon"/>
+          <option code="Asia/Dhaka" label="Asia/Dhaka"/>
+          <option code="Asia/Kathmandu" label="Asia/Kathmandu"/>
+          <option code="Asia/Colombo" label="Asia/Colombo"/>
+          <option code="Asia/Kolkata" label="Asia/Kolkata"/>
+          <option code="Asia/Karachi" label="Asia/Karachi"/>
+          <option code="Asia/Tashkent" label="Asia/Tashkent"/>
+          <option code="Asia/Yekaterinburg" label="Asia/Yekaterinburg"/>
+          <option code="Asia/Kabul" label="Asia/Kabul"/>
+          <option code="Asia/Tehran" label="Asia/Tehran"/>
+          <option code="Asia/Baku" label="Asia/Baku"/>
+          <option code="Asia/Dubai" label="Asia/Dubai"/>
+          <option code="Asia/Tbilisi" label="Asia/Tbilisi"/>
+          <option code="Asia/Yerevan" label="Asia/Yerevan"/>
+          <option code="Africa/Nairobi" label="Africa/Nairobi"/>
+          <option code="Asia/Baghdad" label="Asia/Baghdad"/>
+          <option code="Asia/Beirut" label="Asia/Beirut"/>
+          <option code="Asia/Jerusalem" label="Asia/Jerusalem"/>
+          <option code="Asia/Kuwait" label="Asia/Kuwait"/>
+          <option code="Asia/Riyadh" label="Asia/Riyadh"/>
+          <option code="Europe/Athens" label="Europe/Athens"/>
+          <option code="Europe/Bucharest" label="Europe/Bucharest"/>
+          <option code="Europe/Helsinki" label="Europe/Helsinki"/>
+          <option code="Europe/Istanbul" label="Europe/Istanbul"/>
+          <option code="Europe/Minsk" label="Europe/Minsk"/>
+          <option code="Europe/Moscow" label="Europe/Moscow"/>
+          <option code="Africa/Cairo" label="Africa/Cairo"/>
+          <option code="Africa/Johannesburg" label="Africa/Johannesburg"/>
+          <option code="Europe/Amsterdam" label="Europe/Amsterdam"/>
+          <option code="Europe/Berlin" label="Europe/Berlin"/>
+          <option code="Europe/Brussels" label="Europe/Brussels"/>
+          <option code="Europe/Paris" label="Europe/Paris"/>
+          <option code="Europe/Prague" label="Europe/Prague"/>
+          <option code="Europe/Rome" label="Europe/Rome"/>
+          <option code="Africa/Algiers" label="Africa/Algiers"/>
+          <option code="Africa/Casablanca" label="Africa/Casablanca"/>
+          <option code="Europe/Dublin" label="Europe/Dublin"/>
+          <option code="Europe/Lisbon" label="Europe/Lisbon"/>
+          <option code="Europe/London" label="Europe/London"/>
+          <option code="America/Scoresbysund" label="America/Scoresbysund"/>
+          <option code="Atlantic/Azores" label="Atlantic/Azores"/>
+          <option code="GMT" label="GMT"/>
+          <option code="Atlantic/Cape_Verde" label="Atlantic/Cape_Verde"/>
+          <option code="Atlantic/South_Georgia" label="Atlantic/South_Georgia"/>
+          <option code="America/St_Johns" label="America/St_Johns"/>
+          <option code="America/Argentina/Buenos_Aires" label="America/Argentina/Buenos_Aires"/>
+          <option code="America/Halifax" label="America/Halifax"/>
+          <option code="America/Sao_Paulo" label="America/Sao_Paulo"/>
+          <option code="Atlantic/Bermuda" label="Atlantic/Bermuda"/>
+          <option code="America/Caracas" label="America/Caracas"/>
+          <option code="America/Indiana/Indianapolis" label="America/Indiana/Indianapolis"/>
+          <option code="America/New_York" label="America/New_York"/>
+          <option code="America/Puerto_Rico" label="America/Puerto_Rico"/>
+          <option code="America/Santiago" label="America/Santiago"/>
+          <option code="America/Bogota" label="America/Bogota"/>
+          <option code="America/Chicago" label="America/Chicago"/>
+          <option code="America/Lima" label="America/Lima"/>
+          <option code="America/Mexico_City" label="America/Mexico_City"/>
+          <option code="America/Panama" label="America/Panama"/>
+          <option code="America/Denver" label="America/Denver"/>
+          <option code="America/El_Salvador" label="America/El_Salvador"/>
+          <option code="America/Mazatlan" label="America/Mazatlan"/>
+          <option code="America/Los_Angeles" label="America/Los_Angeles"/>
+          <option code="America/Phoenix" label="America/Phoenix"/>
+          <option code="America/Tijuana" label="America/Tijuana"/>
+          <option code="America/Anchorage" label="America/Anchorage"/>
+          <option code="Pacific/Pitcairn" label="Pacific/Pitcairn"/>
+          <option code="America/Adak" label="America/Adak"/>
+          <option code="Pacific/Gambier" label="Pacific/Gambier"/>
+          <option code="Pacific/Marquesas" label="Pacific/Marquesas"/>
+          <option code="Pacific/Honolulu" label="Pacific/Honolulu"/>
+          <option code="Pacific/Niue" label="Pacific/Niue"/>
+          <option code="Pacific/Pago_Pago" label="Pacific/Pago_Pago"/>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>America/New_York</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="AboutMe">
+        <fieldInfo code="AboutMe" label="About Me">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesActivityRemindersPopup">
+        <fieldInfo code="UserPreferencesActivityRemindersPopup" label="ActivityRemindersPopup">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="ReceivesAdminInfoEmails">
+        <fieldInfo code="ReceivesAdminInfoEmails" label="Admin Info Emails">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="ForecastEnabled">
+        <fieldInfo code="ForecastEnabled" label="Allow Forecasting">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsMobileUser">
+        <fieldInfo code="UserPermissionsMobileUser" label="Apex Mobile User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesApexPagesDeveloperMode">
+        <fieldInfo code="UserPreferencesApexPagesDeveloperMode" label="ApexPagesDeveloperMode">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsCallCenterAutoLogin">
+        <fieldInfo code="UserPermissionsCallCenterAutoLogin" label="Auto-login To Call Center">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="EmailPreferencesAutoBcc">
+        <fieldInfo code="EmailPreferencesAutoBcc" label="AutoBcc">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="EmailPreferencesAutoBccStayInTouch">
+        <fieldInfo code="EmailPreferencesAutoBccStayInTouch" label="AutoBccStayInTouch">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesCacheDiagnostics">
+        <fieldInfo code="UserPreferencesCacheDiagnostics" label="CacheDiagnostics">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="CallCenterId">
+        <fieldInfo code="CallCenterId" label="Call Center ID">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="DigestFrequency">
+        <fieldInfo code="DigestFrequency" label="Chatter Email Highlights Frequency">
+          <option code="D" label="D"/>
+          <option code="W" label="W"/>
+          <option code="N" label="N"/>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="City">
+        <fieldInfo code="City" label="City">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>l</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="CompanyName">
+        <fieldInfo code="CompanyName" label="Company Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesContentEmailAsAndWhen">
+        <fieldInfo code="UserPreferencesContentEmailAsAndWhen" label="ContentEmailAsAndWhen">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesContentNoEmail">
+        <fieldInfo code="UserPreferencesContentNoEmail" label="ContentNoEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Country">
+        <fieldInfo code="Country" label="Country">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="JigsawImportLimitOverride">
+        <fieldInfo code="JigsawImportLimitOverride" label="Data.com Monthly Addition Limit">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsJigsawProspectingUser">
+        <fieldInfo code="UserPermissionsJigsawProspectingUser" label="Data.com User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="DefaultGroupNotificationFrequency">
+        <fieldInfo code="DefaultGroupNotificationFrequency" label="Default Notification Frequency when Joining Groups">
+          <option code="P" label="P"/>
+          <option code="D" label="D"/>
+          <option code="W" label="W"/>
+          <option code="N" label="N"/>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="DelegatedApproverId">
+        <fieldInfo code="DelegatedApproverId" label="Delegated Approver ID">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Department">
+        <fieldInfo code="Department" label="Department">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>department</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableAllFeedsEmail">
+        <fieldInfo code="UserPreferencesDisableAllFeedsEmail" label="DisableAllFeedsEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableBookmarkEmail">
+        <fieldInfo code="UserPreferencesDisableBookmarkEmail" label="DisableBookmarkEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableChangeCommentEmail">
+        <fieldInfo code="UserPreferencesDisableChangeCommentEmail" label="DisableChangeCommentEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableEndorsementEmail">
+        <fieldInfo code="UserPreferencesDisableEndorsementEmail" label="DisableEndorsementEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableFeedbackEmail">
+        <fieldInfo code="UserPreferencesDisableFeedbackEmail" label="DisableFeedbackEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableFileShareNotificationsForApi">
+        <fieldInfo code="UserPreferencesDisableFileShareNotificationsForApi" label="DisableFileShareNotificationsForApi">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableFollowersEmail">
+        <fieldInfo code="UserPreferencesDisableFollowersEmail" label="DisableFollowersEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableLaterCommentEmail">
+        <fieldInfo code="UserPreferencesDisableLaterCommentEmail" label="DisableLaterCommentEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableLikeEmail">
+        <fieldInfo code="UserPreferencesDisableLikeEmail" label="DisableLikeEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableMentionsPostEmail">
+        <fieldInfo code="UserPreferencesDisableMentionsPostEmail" label="DisableMentionsPostEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableMessageEmail">
+        <fieldInfo code="UserPreferencesDisableMessageEmail" label="DisableMessageEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableProfilePostEmail">
+        <fieldInfo code="UserPreferencesDisableProfilePostEmail" label="DisableProfilePostEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableSharePostEmail">
+        <fieldInfo code="UserPreferencesDisableSharePostEmail" label="DisableSharePostEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisableWorkEmail">
+        <fieldInfo code="UserPreferencesDisableWorkEmail" label="DisableWorkEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisCommentAfterLikeEmail">
+        <fieldInfo code="UserPreferencesDisCommentAfterLikeEmail" label="DisCommentAfterLikeEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisMentionsCommentEmail">
+        <fieldInfo code="UserPreferencesDisMentionsCommentEmail" label="DisMentionsCommentEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesDisProfPostCommentEmail">
+        <fieldInfo code="UserPreferencesDisProfPostCommentEmail" label="DisProfPostCommentEmail">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Division">
+        <fieldInfo code="Division" label="Division">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="SenderEmail">
+        <fieldInfo code="SenderEmail" label="Email Sender Address">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="SenderName">
+        <fieldInfo code="SenderName" label="Email Sender Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Signature">
+        <fieldInfo code="Signature" label="Email Signature">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="EmployeeNumber">
+        <fieldInfo code="EmployeeNumber" label="Employee Number">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesEnableAutoSubForFeeds">
+        <fieldInfo code="UserPreferencesEnableAutoSubForFeeds" label="EnableAutoSubForFeeds">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesEventRemindersCheckboxDefault">
+        <fieldInfo code="UserPreferencesEventRemindersCheckboxDefault" label="EventRemindersCheckboxDefault">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Extension">
+        <fieldInfo code="Extension" label="Extension">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Fax">
+        <fieldInfo code="Fax" label="Fax">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>facsimileTelephoneNumber</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="FederationIdentifier">
+        <fieldInfo code="FederationIdentifier" label="Federation Identifier">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="FirstName">
+        <fieldInfo code="FirstName" label="First Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>givenName</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsInteractionUser">
+        <fieldInfo code="UserPermissionsInteractionUser" label="Flow User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="GeocodeAccuracy">
+        <fieldInfo code="GeocodeAccuracy" label="Geocode Accuracy">
+          <option code="Address" label="Address"/>
+          <option code="NearAddress" label="NearAddress"/>
+          <option code="Block" label="Block"/>
+          <option code="Street" label="Street"/>
+          <option code="ExtendedZip" label="ExtendedZip"/>
+          <option code="Zip" label="Zip"/>
+          <option code="Neighborhood" label="Neighborhood"/>
+          <option code="City" label="City"/>
+          <option code="County" label="County"/>
+          <option code="State" label="State"/>
+          <option code="Unknown" label="Unknown"/>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesHideBiggerPhotoCallout">
+        <fieldInfo code="UserPreferencesHideBiggerPhotoCallout" label="HideBiggerPhotoCallout">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesHideChatterOnboardingSplash">
+        <fieldInfo code="UserPreferencesHideChatterOnboardingSplash" label="HideChatterOnboardingSplash">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesHideCSNDesktopTask">
+        <fieldInfo code="UserPreferencesHideCSNDesktopTask" label="HideCSNDesktopTask">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesHideCSNGetChatterMobileTask">
+        <fieldInfo code="UserPreferencesHideCSNGetChatterMobileTask" label="HideCSNGetChatterMobileTask">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesHideEndUserOnboardingAssistantModal">
+        <fieldInfo code="UserPreferencesHideEndUserOnboardingAssistantModal" label="HideEndUserOnboardingAssistantModal">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesHideLightningMigrationModal">
+        <fieldInfo code="UserPreferencesHideLightningMigrationModal" label="HideLightningMigrationModal">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesHideS1BrowserUI">
+        <fieldInfo code="UserPreferencesHideS1BrowserUI" label="HideS1BrowserUI">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesHideSecondChatterOnboardingSplash">
+        <fieldInfo code="UserPreferencesHideSecondChatterOnboardingSplash" label="HideSecondChatterOnboardingSplash">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesHideSfxWelcomeMat">
+        <fieldInfo code="UserPreferencesHideSfxWelcomeMat" label="HideSfxWelcomeMat">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="ReceivesInfoEmails">
+        <fieldInfo code="ReceivesInfoEmails" label="Info Emails">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesJigsawListUser">
+        <fieldInfo code="UserPreferencesJigsawListUser" label="JigsawListUser">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsKnowledgeUser">
+        <fieldInfo code="UserPermissionsKnowledgeUser" label="Knowledge User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Latitude">
+        <fieldInfo code="Latitude" label="Latitude">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesLightningExperiencePreferred">
+        <fieldInfo code="UserPreferencesLightningExperiencePreferred" label="LightningExperiencePreferred">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Longitude">
+        <fieldInfo code="Longitude" label="Longitude">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="ManagerId">
+        <fieldInfo code="ManagerId" label="Manager ID">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsMarketingUser">
+        <fieldInfo code="UserPermissionsMarketingUser" label="Marketing User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="MobilePhone">
+        <fieldInfo code="MobilePhone" label="Mobile Phone">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>mobile</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsOfflineUser">
+        <fieldInfo code="UserPermissionsOfflineUser" label="Offline User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesPathAssistantCollapsed">
+        <fieldInfo code="UserPreferencesPathAssistantCollapsed" label="PathAssistantCollapsed">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="PermissionSets">
+        <fieldInfo code="PermissionSets" label="Permission Sets">
+          <multiValue>true</multiValue>
+          <option code="0PS1t000002KQHfGAO" label="X00e1a000000MWa8AAG"/>
+          <option code="0PS1t000002KQHgGAO" label="X00ex00000018ozl_128_09_04_12_5"/>
+          <option code="0PS1t000002KQHhGAO" label="X00ex00000018ozm_128_09_04_12_6"/>
+          <option code="0PS1t000002KQHiGAO" label="X00ex00000018ozk_128_09_04_12_4"/>
+          <option code="0PS1t000002KQHjGAO" label="X00ex00000018ozj_128_09_04_12_3"/>
+          <option code="0PS1t000002KQHkGAO" label="X00ex00000018ozo_128_09_04_12_8"/>
+          <option code="0PS1t000002KQHlGAO" label="X00ex00000018ozh_128_09_04_12_1"/>
+          <option code="0PS1t000002KQHmGAO" label="X00ex00000018ozq_128_09_04_12_10"/>
+          <option code="0PS1t000002KQHnGAO" label="X00ex00000018ozp_128_09_04_12_9"/>
+          <option code="0PS1t000002KQHoGAO" label="X00ex00000018ozn_128_09_04_12_7"/>
+          <option code="0PS1t000002KQHpGAO" label="X00e1a000000MWa9AAG"/>
+          <option code="0PS1t000002KQHqGAO" label="X00e1a000000MWaBAAW"/>
+          <option code="0PS1t000002KQHrGAO" label="X00e1a000000MWaCAAW"/>
+          <option code="0PS1t000002KQHsGAO" label="X00e1a000000MWaDAAW"/>
+          <option code="0PS1t000002KQHtGAO" label="X00e1a000000MWaEAAW"/>
+          <option code="0PS1t000002KQHuGAO" label="X00e1a000000MWaFAAW"/>
+          <option code="0PS1t000002KQHvGAO" label="X00e1a000000MWaGAAW"/>
+          <option code="0PS1t000002KQHwGAO" label="X00e1a000000MWaHAAW"/>
+          <option code="0PS1t000002KQHxGAO" label="X00e1a000000MWaIAAW"/>
+          <option code="0PS1t000002KQHyGAO" label="X00e1a000000MWaJAAW"/>
+          <option code="0PS1t000002KQHzGAO" label="X00e1a000000MWaKAAW"/>
+          <option code="0PS1t000002KQI0GAO" label="X00e1a000000MWaLAAW"/>
+          <option code="0PS1t000002KQI1GAO" label="X00e1a000000MWaMAAW"/>
+          <option code="0PS1t000002KQI2GAO" label="X00e1a000000MWaNAAW"/>
+          <option code="0PS1t000002KQI3GAO" label="X00e1a000000MWaOAAW"/>
+          <option code="0PS1t000002KQI4GAO" label="X00e1a000000MWaPAAW"/>
+          <option code="0PS1t000002KQI5GAO" label="X00e1a000000MWaQAAW"/>
+          <option code="0PS1t000002KQI6GAO" label="X00e1a000000MWaRAAW"/>
+          <option code="0PS1t000002KQI7GAO" label="X00e1a000000MWaSAAW"/>
+          <option code="0PS1t000002KQI8GAO" label="X00e1a000000MWaTAAW"/>
+          <option code="0PS1t000002KQI9GAO" label="X00e1a000000MWaUAAW"/>
+          <option code="0PS1t000002KQIBGA4" label="X00e1a000000N1LRAA0"/>
+          <option code="0PS1t000002KQICGA4" label="X00e1a000000N1LSAA0"/>
+          <option code="0PS1t000002KQIDGA4" label="X00e1a000000N1wKAAS"/>
+          <option code="0PS1t000002KQIEGA4" label="X00e1a000000N1wLAAS"/>
+          <option code="0PS1t000002KQIGGA4" label="X00e1a000000MWaAAAW"/>
+          <option code="0PS1t000001HXJTGA4" label="ServiceUserPsl"/>
+          <option code="0PS1t000001HXJUGA4" label="CRMUserPsl"/>
+          <option code="0PS1t000001HXJSGA4" label="SalesUserPsl"/>
+          <option code="0PS1t000002KQIHGA4" label="SalesConsoleUser"/>
+          <option code="0PS1t000002NbwSGAS" label="StandardEinsteinActivityCapturePsl"/>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Phone">
+        <fieldInfo code="Phone" label="Phone">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>telephoneNumber</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="PostalCode">
+        <fieldInfo code="PostalCode" label="Postal Code">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>postalCode</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesPreviewLightning">
+        <fieldInfo code="UserPreferencesPreviewLightning" label="PreviewLightning">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesReminderSoundOff">
+        <fieldInfo code="UserPreferencesReminderSoundOff" label="ReminderSoundOff">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsSFContentUser">
+        <fieldInfo code="UserPermissionsSFContentUser" label="Salesforce CRM Content User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsSupportUser">
+        <fieldInfo code="UserPermissionsSupportUser" label="Service Cloud User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowCityToExternalUsers">
+        <fieldInfo code="UserPreferencesShowCityToExternalUsers" label="ShowCityToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowCityToGuestUsers">
+        <fieldInfo code="UserPreferencesShowCityToGuestUsers" label="ShowCityToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowCountryToExternalUsers">
+        <fieldInfo code="UserPreferencesShowCountryToExternalUsers" label="ShowCountryToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowCountryToGuestUsers">
+        <fieldInfo code="UserPreferencesShowCountryToGuestUsers" label="ShowCountryToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowEmailToExternalUsers">
+        <fieldInfo code="UserPreferencesShowEmailToExternalUsers" label="ShowEmailToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowEmailToGuestUsers">
+        <fieldInfo code="UserPreferencesShowEmailToGuestUsers" label="ShowEmailToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowFaxToExternalUsers">
+        <fieldInfo code="UserPreferencesShowFaxToExternalUsers" label="ShowFaxToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowFaxToGuestUsers">
+        <fieldInfo code="UserPreferencesShowFaxToGuestUsers" label="ShowFaxToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowManagerToExternalUsers">
+        <fieldInfo code="UserPreferencesShowManagerToExternalUsers" label="ShowManagerToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowManagerToGuestUsers">
+        <fieldInfo code="UserPreferencesShowManagerToGuestUsers" label="ShowManagerToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowMobilePhoneToExternalUsers">
+        <fieldInfo code="UserPreferencesShowMobilePhoneToExternalUsers" label="ShowMobilePhoneToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowMobilePhoneToGuestUsers">
+        <fieldInfo code="UserPreferencesShowMobilePhoneToGuestUsers" label="ShowMobilePhoneToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowPostalCodeToExternalUsers">
+        <fieldInfo code="UserPreferencesShowPostalCodeToExternalUsers" label="ShowPostalCodeToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowPostalCodeToGuestUsers">
+        <fieldInfo code="UserPreferencesShowPostalCodeToGuestUsers" label="ShowPostalCodeToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowProfilePicToGuestUsers">
+        <fieldInfo code="UserPreferencesShowProfilePicToGuestUsers" label="ShowProfilePicToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowStateToExternalUsers">
+        <fieldInfo code="UserPreferencesShowStateToExternalUsers" label="ShowStateToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowStateToGuestUsers">
+        <fieldInfo code="UserPreferencesShowStateToGuestUsers" label="ShowStateToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowStreetAddressToExternalUsers">
+        <fieldInfo code="UserPreferencesShowStreetAddressToExternalUsers" label="ShowStreetAddressToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowStreetAddressToGuestUsers">
+        <fieldInfo code="UserPreferencesShowStreetAddressToGuestUsers" label="ShowStreetAddressToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowTitleToExternalUsers">
+        <fieldInfo code="UserPreferencesShowTitleToExternalUsers" label="ShowTitleToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowTitleToGuestUsers">
+        <fieldInfo code="UserPreferencesShowTitleToGuestUsers" label="ShowTitleToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowWorkPhoneToExternalUsers">
+        <fieldInfo code="UserPreferencesShowWorkPhoneToExternalUsers" label="ShowWorkPhoneToExternalUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesShowWorkPhoneToGuestUsers">
+        <fieldInfo code="UserPreferencesShowWorkPhoneToGuestUsers" label="ShowWorkPhoneToGuestUsers">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsSiteforceContributorUser">
+        <fieldInfo code="UserPermissionsSiteforceContributorUser" label="Site.com Contributor User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsSiteforcePublisherUser">
+        <fieldInfo code="UserPermissionsSiteforcePublisherUser" label="Site.com Publisher User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesSortFeedByComment">
+        <fieldInfo code="UserPreferencesSortFeedByComment" label="SortFeedByComment">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="State">
+        <fieldInfo code="State" label="State">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>st</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="StayInTouchNote">
+        <fieldInfo code="StayInTouchNote" label="Stay-in-Touch Email Note">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="StayInTouchSignature">
+        <fieldInfo code="StayInTouchSignature" label="Stay-in-Touch Email Signature">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="StayInTouchSubject">
+        <fieldInfo code="StayInTouchSubject" label="Stay-in-Touch Email Subject">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="EmailPreferencesStayInTouchReminder">
+        <fieldInfo code="EmailPreferencesStayInTouchReminder" label="StayInTouchReminder">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Street">
+        <fieldInfo code="Street" label="Street">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>streetAddress</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPreferencesTaskRemindersCheckboxDefault">
+        <fieldInfo code="UserPreferencesTaskRemindersCheckboxDefault" label="TaskRemindersCheckboxDefault">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="Title">
+        <fieldInfo code="Title" label="Title">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>title</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="UserRoleId">
+        <fieldInfo code="UserRoleId" label="User Role Id">
+          <option code="00E1t000001Io8vEAC" label="CEO"/>
+          <option code="00E1t000001Io92EAC" label="CFO"/>
+          <option code="00E1t000001Io95EAC" label="Channel Sales Team"/>
+          <option code="00E1t000001Io9CEAS" label="COO"/>
+          <option code="00E1t000001Io99EAC" label="Customer Support, International"/>
+          <option code="00E1t000001Io94EAC" label="Customer Support, North America"/>
+          <option code="00E1t000001Io91EAC" label="Director, Channel Sales"/>
+          <option code="00E1t000001Io8yEAC" label="Director, Direct Sales"/>
+          <option code="00E1t000001Io98EAC" label="Eastern Sales Team"/>
+          <option code="00E1t000001Io97EAC" label="Installation &amp; Repair Services"/>
+          <option code="00E1t000001Io96EAC" label="Marketing Team"/>
+          <option code="00E1t000001Io90EAC" label="SVP, Customer Service &amp; Support"/>
+          <option code="00E1t000001Io9BEAS" label="SVP, Human Resources"/>
+          <option code="00E1t000001Io8wEAC" label="SVP, Sales &amp; Marketing"/>
+          <option code="00E1t000001Io9AEAS" label="VP, International Sales"/>
+          <option code="00E1t000001Io8zEAC" label="VP, Marketing"/>
+          <option code="00E1t000001Io8xEAC" label="VP, North American Sales"/>
+          <option code="00E1t000001Io93EAC" label="Western Sales Team"/>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="UserPermissionsWorkDotComUserFeature">
+        <fieldInfo code="UserPermissionsWorkDotComUserFeature" label="Work.com User">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+    </channel>
+    <Scim/>
+  </saasProvisionerEntity>
+  <saasProvisionerEntity>
+    <entityId>PingOne For Customers Connector</entityId>
+    <target id="PingOneForCustomers">
+      <parameter name="ENVIRONMENT_ID" value="f2ea1367-f6c9-47e5-8791-152bb7ca1b2c"/>
+      <parameter name="CLIENT_ID" value="a97a401c-70d0-49de-813b-1cc8a1a22a6e"/>
+      <parameter name="CLIENT_SECRET" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..tUuk18ENw0snem-DO5vJDw.mrdzk_n9EHlbYCKeC7XwTfHJq2vX1VmN2vggO2RzM3Ms7lxk4TVZP7kuTei1tOGdtEdOMWyvegnJfwFsTB64BDAV34uIHDI4G8wakqbtRCw.jGLDOHWOJmnaM-tnVBeKfw"/>
+      <parameter name="Provisioning Options" value=""/>
+      <parameter name="CREATE_USERS_PROV_OPT" value="true"/>
+      <parameter name="UPDATE_USERS_PROV_OPT" value="true"/>
+      <parameter name="REMOVE_USERS_PROV_OPT" value="true"/>
+      <parameter name="PROVISION_DISABLED_USERS_PROV_OPT" value="true"/>
+      <parameter name="REMOVE_ACTION" value="Disable"/>
+    </target>
+    <channel id="6" name="P14C Channel" active="true">
+      <maxThreads>1</maxThreads>
+      <timeout>60</timeout>
+      <source dataSourceId="LDAP-CCE90DCFE90269C4C060D97ABD3A1A3DD8E532B3">
+        <ldapGuidFormatter guidAttributeName="objectGUID" guidIsBinary="true"/>
+        <usersBaseDN>CN=Users,DC=corp,DC=geolykos,DC=com</usersBaseDN>
+        <groupDN>CN=Users,DC=corp,DC=geolykos,DC=com</groupDN>
+        <memberOfGroupAttributeName>memberof</memberOfGroupAttributeName>
+        <groupMemberAttributeName>member</groupMemberAttributeName>
+        <changedUsersAlgorithm>Active Directory USN</changedUsersAlgorithm>
+        <usnAttributeName>uSNChanged</usnAttributeName>
+        <timestampAttributeName>modifyTimestamp</timestampAttributeName>
+        <userObjectClass>user</userObjectClass>
+        <groupObjectClass>group</groupObjectClass>
+        <directoryIdentityAttributesMapper statusReader="Active Directory Bitmap">
+          <attributeName>userAccountControl</attributeName>
+          <default>true</default>
+        </directoryIdentityAttributesMapper>
+        <userNestedSearch>false</userNestedSearch>
+        <groupNestedSearch>false</groupNestedSearch>
+      </source>
+      <saasUsernameFieldCode>username</saasUsernameFieldCode>
+      <identityMappingField fieldName="username">
+        <fieldInfo code="username" label="Username">
+          <required>true</required>
+          <unique>true</unique>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>sAMAccountName</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="email">
+        <fieldInfo code="email" label="Email">
+          <required>true</required>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>mail</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="populationID">
+        <fieldInfo code="populationID" label="Population ID">
+          <required>true</required>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>fff00a88-5923-4eb2-8d91-e883cc234261</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="accountID">
+        <fieldInfo code="accountID" label="Account ID">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="city">
+        <fieldInfo code="city" label="City">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>l</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="country">
+        <fieldInfo code="country" label="Country">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>co</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="externalID">
+        <fieldInfo code="externalID" label="External ID">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>objectGUID</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="firstName">
+        <fieldInfo code="firstName" label="First Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>givenName</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="forceChangePassword">
+        <fieldInfo code="forceChangePassword" label="Force Change Password">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="fullName">
+        <fieldInfo code="fullName" label="Full Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="honorificPrefix">
+        <fieldInfo code="honorificPrefix" label="Honorific Prefix">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>personalTitle</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="honorificSuffix">
+        <fieldInfo code="honorificSuffix" label="Honorific Suffix">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>generationQualifier</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="jobTitle">
+        <fieldInfo code="jobTitle" label="Job Title">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>title</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="lastName">
+        <fieldInfo code="lastName" label="Last Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>sn</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="locale">
+        <fieldInfo code="locale" label="Locale">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>en-US</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="middleName">
+        <fieldInfo code="middleName" label="Middle Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>middleName</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="mobilePhone">
+        <fieldInfo code="mobilePhone" label="Mobile Phone">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>mobile</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="nickname">
+        <fieldInfo code="nickname" label="Nickname">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="password">
+        <fieldInfo code="password" label="Password">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="preferredLanguage">
+        <fieldInfo code="preferredLanguage" label="Preferred Language">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>en-us</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="primaryPhone">
+        <fieldInfo code="primaryPhone" label="Primary Phone">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>telephoneNumber</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="profileImage">
+        <fieldInfo code="profileImage" label="Profile Image">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="stateRegion">
+        <fieldInfo code="stateRegion" label="State / Region">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>st</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="streetAddress">
+        <fieldInfo code="streetAddress" label="Street Address">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>streetAddress</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="timezone">
+        <fieldInfo code="timezone" label="Timezone">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="userType">
+        <fieldInfo code="userType" label="User Type">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="ZIPCode">
+        <fieldInfo code="ZIPCode" label="ZIP Code">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>postalCode</attributes>
+        </fieldConfig>
+      </identityMappingField>
+    </channel>
+    <Scim/>
+  </saasProvisionerEntity>
+</saasProvisioner>

@@ -1,3 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ldap:ldap-sources xmlns:ldap="http://pingidentity.com/2004/09/ldap-ds">
+    <ldap:ldap-source id="LDAP-9669C10F5AF426321D3696D72C38D12B36C72FB2" maskAttributeValues="false" ldapType="ActiveDirectory" ldapTypeDesc="Active Directory" testOnBorrow="false" testOnReturn="false" createIfNecessary="true" minIdle="10" maxActive="100" maxWait="-1" timeBetweenEvictionRunsMillis="60000" readTimeoutMillis="3000" connTimeoutMillis="3000" verifyHost="true" dnsTtlMillis="60000" ldapDnsSrvPrefix="_ldap._tcp" ldapsDnsSrvPrefix="_ldaps._tcp">
+        <ldap:host>ldap.jumpcloud.com:389</ldap:host>
+        <ldap:principal>uid=gormanis,ou=Users,o=5c372cb6e690384c3cd1cf95,dc=jumpcloud,dc=com</ldap:principal>
+        <ldap:use-ssl>false</ldap:use-ssl>
+        <ldap:use-dns-srv-records>false</ldap:use-dns-srv-records>
+        <ldap:credentials>eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..fGOnmU31iYIbODjheMMPaQ.eFYEuFLM_mlrboSj1wmvXA.DnvPNnONeGwQvyNZII_OTQ</ldap:credentials>
+        <ldap:authenticationMeth>simple</ldap:authenticationMeth>
+        <ldap:description>JumpCloud</ldap:description>
+        <ldap:name>JumpCloud</ldap:name>
+        <ldap:binaryAttributes>
+            <ldap:binaryAttribute>objectGUID</ldap:binaryAttribute>
+        </ldap:binaryAttributes>
+    </ldap:ldap-source>
+    <ldap:ldap-source id="LDAP-CCE90DCFE90269C4C060D97ABD3A1A3DD8E532B3" maskAttributeValues="false" ldapType="ActiveDirectory" ldapTypeDesc="Active Directory" testOnBorrow="false" testOnReturn="false" createIfNecessary="true" minIdle="10" maxActive="100" maxWait="-1" timeBetweenEvictionRunsMillis="60000" readTimeoutMillis="3000" connTimeoutMillis="3000" verifyHost="true" dnsTtlMillis="60000" ldapDnsSrvPrefix="_ldap._tcp" ldapsDnsSrvPrefix="_ldaps._tcp">
+        <ldap:host>172.16.204.150:389</ldap:host>
+        <ldap:principal>CORP\Administrator</ldap:principal>
+        <ldap:use-ssl>false</ldap:use-ssl>
+        <ldap:use-dns-srv-records>false</ldap:use-dns-srv-records>
+        <ldap:credentials>eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..TyygcH2RLqap1PIg9jVdbQ.C707ScTpb3hCk_nQwYfU-A.1528nagA9fm4P9_8NxgdJw</ldap:credentials>
+        <ldap:authenticationMeth>simple</ldap:authenticationMeth>
+        <ldap:description>corp.geolykos.com</ldap:description>
+        <ldap:name>corp.geolykos.com</ldap:name>
+        <ldap:binaryAttributes/>
+    </ldap:ldap-source>
 </ldap:ldap-sources>

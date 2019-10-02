@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c2c:c2cContract id="95inrzHLXmHTgxCI" name="KerberosContract" xmlns:c2c="http://pingidentity.com/2014/10/c2cContracts">
+    <c2c:extendedAttributes>
+        <c2c:attr name="SIDs"/>
+        <c2c:attr name="Domain/Realm Name"/>
+        <c2c:attr name="Username"/>
+    </c2c:extendedAttributes>
+</c2c:c2cContract>

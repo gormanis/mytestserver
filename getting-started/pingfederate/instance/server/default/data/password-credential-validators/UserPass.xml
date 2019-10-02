@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:PluginConfiguration isInheritExtendedContractAttributes="false" name="UserPass" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields/>
+    <urn:AdvancedFields/>
+    <urn:Tables>
+        <urn:Table name="Users">
+            <urn:Row>
+                <urn:Field name="Username">joe</urn:Field>
+                <urn:Field name="Password">4ZYEldsYu4gVcStjD2zJ0YoyPxqsnjpJ9rXrNxqSJcc.P3VBDrlQ.2</urn:Field>
+                <urn:Field name="Confirm Password">pjLp-y1OCh2bFIvbsfy2M-i-TPUqC7wQWsC66zGgbjc.EYmiN9vt.2</urn:Field>
+                <urn:Field name="Relax Password Requirements"/>
+            </urn:Row>
+            <urn:Row>
+                <urn:Field name="Username">sarah</urn:Field>
+                <urn:Field name="Password">MDHWhl_a8QUSOU7YDz4mkqg77_srock0xEevixAiwIM.5nDJyaOG.2</urn:Field>
+                <urn:Field name="Confirm Password">osb7ZRAGBbb0_9MAOTm31YEsdKxonjWwMpOZgZvK_Io.M5uXru-X.2</urn:Field>
+                <urn:Field name="Relax Password Requirements"/>
+            </urn:Row>
+            <urn:Row>
+                <urn:Field name="Username">scott</urn:Field>
+                <urn:Field name="Password">gwffxw0ZL-FGjO4T62d4LmoqXsmRQWAqyo898qXObN8.O5TSas1i.2</urn:Field>
+                <urn:Field name="Confirm Password">va256fq1qAGocgCM0ol5sXGhIQyUf6lWNAIxpdGlef4.fNpbEgJl.2</urn:Field>
+                <urn:Field name="Relax Password Requirements"/>
+            </urn:Row>
+            <urn:Row>
+                <urn:Field name="Username">geolykos@sso-test.com</urn:Field>
+                <urn:Field name="Password">9NfbDte3CKkiVgQz7nUKz5VSU8EpVkFsM3GPyiExdKM.X8VgkL1W.2</urn:Field>
+                <urn:Field name="Confirm Password">daR9sOwI_AhfgAdAIiqD_MtUjczQrgsdDtEkXK6lnNA.snuVg-st.2</urn:Field>
+                <urn:Field name="Relax Password Requirements">false</urn:Field>
+            </urn:Row>
+            <urn:Row>
+                <urn:Field name="Username">georgeormanis</urn:Field>
+                <urn:Field name="Password">OSPOLYg8-o4jdt6PZRG__9eY4KauNzP-1rziDUyWv9A.WjE6lWgh.2</urn:Field>
+                <urn:Field name="Confirm Password">WdEjf0rD7VtQJCxctafavYCgp8hePeXMWfdARvBv258.EIq7OYc1.2</urn:Field>
+                <urn:Field name="Relax Password Requirements">false</urn:Field>
+            </urn:Row>
+        </urn:Table>
+    </urn:Tables>
+</urn:PluginConfiguration>

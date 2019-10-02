@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<md:EntityDescriptor entityID="urn:amazon:webservices" urn:name="urn:amazon:webservices" ID="nZduM6e9APNUceO3tf.3Vxd8l3q" urn:baseUrl="https://signin.aws.amazon.com" urn:LogLevel="STANDARD" urn:isActive="true" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:urn="urn:sourceid.org:saml2:metadata-extension:v2">
+    <md:Extensions>
+        <urn:EntityExtension PFVersion="9.3.0.9" LicenseGroup="">
+            <urn:DigitialSignatureAliases SigningKeyAlias="5nyffbm9exyvk6j5tbllmlyue" includeX509inXmlSig="false" includeRawKeyInXmlSig="false" SigningAlgorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256">
+                <urn:ActiveVerificationCertAlias>h6ljglh506udp5cwfse9y9wc0</urn:ActiveVerificationCertAlias>
+            </urn:DigitialSignatureAliases>
+            <urn:Encryption>
+                <urn:EncryptionPolicy EncryptionAlgorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" KeyTransportAlgorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" EncryptAssertion="false" EncryptSubjectNameID="false" SLOEncryptSubjectNameID="false"/>
+                <urn:DecryptionPolicy AssertionEncrypted="false" SubjectNameIDEncrypted="false" AttributeEncrypted="false" SLOSubjectNameIDEncrypted="false"/>
+            </urn:Encryption>
+            <urn:ConnectionTemplateProperties/>
+            <urn:MetadataUrlId>CrdIL7Tw3CiEmiavKEb4r2f4C</urn:MetadataUrlId>
+            <urn:enableAutoMetadataUpdate>true</urn:enableAutoMetadataUpdate>
+            <urn:AdditionalAllowedEntitiesConfiguration>
+                <urn:AllowAdditionalEntities>false</urn:AllowAdditionalEntities>
+                <urn:AllowAllEntities>false</urn:AllowAllEntities>
+                <urn:AdditionalAllowedEntities/>
+            </urn:AdditionalAllowedEntitiesConfiguration>
+        </urn:EntityExtension>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="false" WantAssertionsSigned="true" SignResponseAsRequired="false">
+        <md:Extensions>
+            <urn:RoleExtension ArtifactTimeoutSeconds="60" LastModified="2019-09-06T12:34:21.210+01:00">
+                <urn:IncomingBindings Artifact="true" POST="true" Redirect="true" SOAP="true"/>
+                <urn:EnabledProfiles IDPInitiatedSSO="true" IDPInitiatedSLO="false" SPInitiatedSSO="false" SPInitiatedSLO="false"/>
+                <urn:SP AssertionValidityAfterMinutes="5" AssertionValidityBeforeMinutes="5" ConnectionTargetType="Standard" EnableCDCDuringSSO="false">
+                    <urn:AdapterToAssertionMapping AbortIfNotFoundInAnyDataSources="false" RestrictVirtualServerIds="false" AdapterInstanceId="HTMLFormAdapter">
+                        <urn:DefaultAttributeMapping>
+                            <urn:AttributeMap Name="https://aws.amazon.com/SAML/Attributes/RoleSessionName" Type="Adapter" Value="givenName"/>
+                            <urn:AttributeMap Name="https://aws.amazon.com/SAML/Attributes/Role" Type="Expression" Value="#groupName = new java.util.ArrayList(),    #groups = #this.get(&quot;ds.GeolykosAD.memberOf&quot;)!=null ?    #this.get(&quot;ds.GeolykosAD.memberOf&quot;).getValues() : {},      #i= 0,         #groups.{ #group = new javax.naming.ldap.LdapName(#groups[#i]),              #cn = #group.getRdn(#group.size() - 1).getValue().toString(),    #group.toString().matches(&quot;.*AWS-Users.*&quot;)  ?    #groupName.add(&quot;arn:aws:iam::383909019504:role/&quot; +  #cn + &quot;,arn:aws:iam::383909019504:saml-provider/PingFederate&quot;) : null,    #i = #i + 1 },  new org.sourceid.saml20.adapter.attribute.AttributeValue(#groupName)"/>
+                            <urn:AttributeMap Name="SAML_SUBJECT" Type="Adapter" Value="username"/>
+                            <urn:AttributeSource Id="GeolykosAD" Description="GeolykosAD" Type="LDAP" DataSourceId="LDAP-CCE90DCFE90269C4C060D97ABD3A1A3DD8E532B3">
+                                <urn:Parameter Name="filter" Value="samAccountName=${username}"/>
+                                <urn:Parameter Name="search_base" Value="CN=Users,DC=corp,DC=geolykos,DC=com"/>
+                                <urn:Parameter Name="search_scope" Value="SUBTREE_SCOPE"/>
+                                <urn:Parameter Name="memberof_nested_group" Value="false"/>
+                            </urn:AttributeSource>
+                            <urn:TokenAuthorizationIssuanceCriteria/>
+                        </urn:DefaultAttributeMapping>
+                    </urn:AdapterToAssertionMapping>
+                    <urn:NameIdentifierMappingType IncludeAdditionalAttributes="false" IncludeAdditionalTransientAttributes="false"/>
+                </urn:SP>
+            </urn:RoleExtension>
+        </md:Extensions>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+        <md:AssertionConsumerService index="1" Location="/saml" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" isDefault="true"/>
+        <md:AttributeConsumingService index="0">
+            <md:ServiceName xml:lang="en">AttributeContract</md:ServiceName>
+            <md:RequestedAttribute Name="https://aws.amazon.com/SAML/Attributes/RoleSessionName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
+            <md:RequestedAttribute Name="https://aws.amazon.com/SAML/Attributes/Role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
+        </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:RoleDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" xsi:type="urn:PFSpWsTrustRoleDescriptorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <md:Extensions>
+            <urn:RoleExtension LastModified="2019-09-06T12:34:21.210+01:00"/>
+        </md:Extensions>
+        <urn:WsTrustSettings>
+            <urn:AppliesTo>https://signin.aws.amazon.com/saml</urn:AppliesTo>
+            <urn:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</urn:TokenType>
+            <urn:UseSamlHoK>false</urn:UseSamlHoK>
+            <urn:AbortIfNotFulfilledFromRequest>false</urn:AbortIfNotFulfilledFromRequest>
+            <urn:EncryptAssertion>false</urn:EncryptAssertion>
+            <urn:AssertionValidityBeforeMinutes>5</urn:AssertionValidityBeforeMinutes>
+            <urn:AssertionValidityAfterMinutes>30</urn:AssertionValidityAfterMinutes>
+            <urn:TokenToAssertionMapping pluginId="UsernameTP" RestrictVirtualServerIds="false">
+                <urn:AttributeMapping>
+                    <urn:AttributeMap Name="https://aws.amazon.com/SAML/Attributes/RoleSessionName" Type="Token" Value="username"/>
+                    <urn:AttributeMap Name="https://aws.amazon.com/SAML/Attributes/Role" Type="Expression" Value="#groupName = new java.util.ArrayList(), #groups = #this.get(&quot;ds.GeolykosAD.memberOf&quot;)!=null ? #this.get(&quot;ds.GeolykosAD.memberOf&quot;).getValues() : {}, #i= 0, #groups.{ #group = new javax.naming.ldap.LdapName(#groups[#i]), #cn = #group.getRdn(#group.size() - 1).getValue().toString(), #group.toString().matches(&quot;.*AWS-Users.*&quot;) ? #groupName.add(&quot;arn:aws:iam::383909019504:role/&quot; + #cn + &quot;,arn:aws:iam::383909019504:saml-provider/PingFederate&quot;) : null, #i = #i + 1 }, new org.sourceid.saml20.adapter.attribute.AttributeValue(#groupName)"/>
+                    <urn:AttributeMap Name="TOKEN_SUBJECT" Type="Token" Value="username"/>
+                    <urn:AttributeSource Id="GeolykosAD" Description="GeolykosAD" Type="LDAP" DataSourceId="LDAP-CCE90DCFE90269C4C060D97ABD3A1A3DD8E532B3">
+                        <urn:Parameter Name="filter" Value="samAccountName=${username}"/>
+                        <urn:Parameter Name="search_base" Value="CN=Users,DC=corp,DC=geolykos,DC=com"/>
+                        <urn:Parameter Name="search_scope" Value="SUBTREE_SCOPE"/>
+                        <urn:Parameter Name="memberof_nested_group" Value="false"/>
+                    </urn:AttributeSource>
+                    <urn:TokenAuthorizationIssuanceCriteria/>
+                </urn:AttributeMapping>
+            </urn:TokenToAssertionMapping>
+            <urn:ExtendedAttributeContract>
+                <urn:ExtendedAttribute AttributeName="https://aws.amazon.com/SAML/Attributes/RoleSessionName" MaskValue="false" Namespace=""/>
+                <urn:ExtendedAttribute AttributeName="https://aws.amazon.com/SAML/Attributes/Role" MaskValue="false" Namespace=""/>
+            </urn:ExtendedAttributeContract>
+            <urn:enableOAuthSamlBearer>false</urn:enableOAuthSamlBearer>
+        </urn:WsTrustSettings>
+    </md:RoleDescriptor>
+    <md:RoleDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" xsi:type="urn:PFAvailableCertsRoleDescriptorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <urn:availableCert>
+            <urn:Base64EncodedCert>MIIDbTCCAlWgAwIBAgIEL6q6DjANBgkqhkiG9w0BAQsFADBnMR8wHQYDVQQDExZ1cm46YW1hem9uOndlYnNlcnZpY2VzMSIwIAYDVQQKExlBbWF6b24gV2ViIFNlcnZpY2VzLCBJbmMuMRMwEQYDVQQIEwpXYXNoaW5ndG9uMQswCQYDVQQGEwJVUzAeFw0xOTA3MzEwMDAwMDBaFw0yMDA3MzAwMDAwMDBaMGcxHzAdBgNVBAMTFnVybjphbWF6b246d2Vic2VydmljZXMxIjAgBgNVBAoTGUFtYXpvbiBXZWIgU2VydmljZXMsIEluYy4xEzARBgNVBAgTCldhc2hpbmd0b24xCzAJBgNVBAYTAlVTMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArCQC/9VD6MiyAbwQg9tUOowlE6UC5+/tz49oY+X33elrgI+2dfaKykSN4h2T/eiecv4byD7bv0cU4SETN/fMfpsjKRvaQZkF+8es4EZfqGuQ/OthV0ZljDpcCgBiyiBf/6HMDh5/8Drjalc8qSl8vEUKR3v1Lzb6ldese76h8Xshri/WJZQ129iXQoVzFVNO+k6j9JS17APrw6M9Dj1g02bONqoiiWS3CQw/YnZcJWXBntgOJhD2cUkXYna3mYUzkEE1M4pbLtonZSa0LZcmRO/dJupM3EJJXmwqygY1M1pU6m31Vmdggl5CMpP9GxL3Q56W4WYDbFAaR4Xl8gE4nwIDAQABoyEwHzAdBgNVHQ4EFgQUsIjQNS/+HaLNDnKB320PjaqEbgswDQYJKoZIhvcNAQELBQADggEBAF/YpvafypDQN8fLgvm6SIAj8771b5/zxsg3rlNUXVnOhFLwp02sNoS6Hk7ShuGL5VWNmHyS+XzGVSAk35lZYZkJiyykbqaSCXwzl4aoXGc7RksUEHAq6cWEDoJSf6a1dB+nQ9+DOZq+Se6cU3Id9QUFOHJm+igbV8pxKa4PJkB35EGh4NhUs9hVCJ6DSGuMlceHLMEMKfnyiw/KGXXjjiUXoJptImrPrT/dyezfhg/2q/n40LIHx9KerzD1d53soSaiy+IpKC8T3Pw9HgVZo+gLWfpVrOtxDwCcFcEKk2inICe6LycHJ0Ht6vWQv6jfDSluK8ulaGbu2uLScsNTJsU=</urn:Base64EncodedCert>
+            <urn:alias>h6ljglh506udp5cwfse9y9wc0</urn:alias>
+        </urn:availableCert>
+    </md:RoleDescriptor>
+    <md:ContactPerson contactType="administrative"/>
+</md:EntityDescriptor>

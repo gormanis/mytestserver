@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:config xmlns:con="http://www.sourceid.org/2004/05/config">
+    <con:map name="IdpAuthnAdapterInstances">
+        <con:item name="HTMLFormAdapter">com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter</con:item>
+        <con:item name="HTMLFormSimplePCV">com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter</con:item>
+        <con:item name="HTMLForm">com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter</con:item>
+        <con:item name="AirwatchAdapter">com.pingidentity.adapters.airwatch.IdpAirwatchAdapter</con:item>
+        <con:item name="PingID">com.pingidentity.adapters.pingid.PingIDAdapter</con:item>
+        <con:item name="KerberosAdapter">com.pingidentity.adapters.kerberos.idp.KerberosAuthenticationAdapter</con:item>
+        <con:item name="X509">com.pingidentity.adapters.idp.clientcert.ClientCertIdpAuthnAdapter</con:item>
+        <con:item name="HTMLFormSF">com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter</con:item>
+        <con:item name="HTMLFormAdmin">com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter</con:item>
+        <con:item name="IdFirstAdapter">com.pingidentity.adapters.identifierfirst.idp.IdentifierFirstAdapter</con:item>
+        <con:item name="HTLMFormP14C">com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter</con:item>
+        <con:item name="WS1">com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter</con:item>
+        <con:item name="SFCloudIDConnector">com.pingidentity.adapters.salesforceidp.IdPSalesforceAdapter</con:item>
+    </con:map>
+    <con:map name="IdpAdapterInstanceParents">
+        <con:item name="HTMLFormSF">HTMLFormAdapter</con:item>
+    </con:map>
+</con:config>

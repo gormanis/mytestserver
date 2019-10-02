@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:PluginConfiguration isInheritExtendedContractAttributes="false" name="AdminPass" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields/>
+    <urn:AdvancedFields/>
+    <urn:Tables>
+        <urn:Table name="Users">
+            <urn:Row>
+                <urn:Field name="Username">Admin</urn:Field>
+                <urn:Field name="Password">0H4j7hNGfHHAwKJJreQTZFzSy1S2Xi_Hp2EPHxvV1hk.4-AxyxIn.2</urn:Field>
+                <urn:Field name="Confirm Password">E3eiX00sh-HAv_tulK5dzVVWqMv928QTscy4CuLxDMg.TDcsJAb-.2</urn:Field>
+            </urn:Row>
+            <urn:Row>
+                <urn:Field name="Username">administrator</urn:Field>
+                <urn:Field name="Password">z8fx5WWiEFMO42y_pwJn41Ha705l2VrgqNe7-j7MAIw.Kog1xwuE.2</urn:Field>
+                <urn:Field name="Confirm Password">zfhIdUJfRHVJunL9jM5wS47ZZnPnATGMuVMyPlf8AZ0.QyXw5jII.2</urn:Field>
+            </urn:Row>
+            <urn:Row>
+                <urn:Field name="Username">testadmin</urn:Field>
+                <urn:Field name="Password">f2XGmeECrJ8pTIY0nuOFF7MhyvrRKRYkvE-G8zxaw28.HIyuL6dq.2</urn:Field>
+                <urn:Field name="Confirm Password">Okss33SCqdx_lsqH0-fNjECRjnNprF94u-0x807v1DU.Xou0QE14.2</urn:Field>
+            </urn:Row>
+        </urn:Table>
+    </urn:Tables>
+</urn:PluginConfiguration>

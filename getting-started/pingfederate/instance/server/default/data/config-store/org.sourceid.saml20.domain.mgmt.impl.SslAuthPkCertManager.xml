@@ -1,3 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:config xmlns:con="http://www.sourceid.org/2004/05/config">
+    <con:map name="https://salesforceProvisioning"/>
+    <con:map name="https://geolykos-dev-ed.my.salesforce.com"/>
+    <con:map name="http://pingone.com/d8876578-b305-4ffa-b8b1-557160890324"/>
+    <con:map name="https://ping-eucse.vmwareidentity.eu/SAAS/API/1.0/GET/metadata/idp.xml"/>
+    <con:map name="PingConnect"/>
+    <con:map name="urn:amazon:webservices"/>
+    <con:map name="https://ping-eucse.vmwareidentity.eu/SAAS/API/1.0/GET/metadata/sp.xml"/>
+    <con:map name="https://geolykos-dev-ed.my.salesforce.com1"/>
+    <con:map name="https://geolykos-dev-ed.my.salesforce.com2"/>
+    <con:map name="PingOne For Customers Connector"/>
+    <con:map name="X509"/>
 </con:config>
