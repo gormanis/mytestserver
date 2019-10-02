@@ -1,0 +1,13 @@
+ID=1308322
+Organization=68
+Product=PingFederate
+Version=9.3
+IssueDate=2019-07-12
+EnforcementType=3
+ExpirationDate=2023-08-11
+Tier=Free
+SaasProvisioning=true
+WSTrustSTS=true
+OAuth=true
+SignCode=FF07
+Signature=302C02141EE9C43E0536797C3E7E69796B1E5ECA9D2F3462021433B5E10D576FBDD2ECA14C04C8A1ADFFEF48592B
