@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SoapAuth xmlns="http://www.sourceid.org/2004/04/soapauth">
     <Incoming>
+        <None providerID="(SP) ::: https://samltest.id/saml/sp" ssl="true" disableCertChainValidation="false"/>
         <Basic providerID="(SP) ::: https://ping-eucse.vmwareidentity.eu/SAAS/API/1.0/GET/metadata/sp.xml" ssl="true" disableCertChainValidation="false" password="4_gFzhDO2PE5TWH_Tzh0ooYdP_fFqBgPkwEjbJJmhL4.45GoN4I9.2" username="test"/>
     </Incoming>
-    <Outgoing/>
+    <Outgoing>
+        <None providerID="(SP) ::: https://samltest.id/saml/sp" ssl="false" disableCertChainValidation="false"/>
+    </Outgoing>
 </SoapAuth>

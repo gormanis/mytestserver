@@ -5,7 +5,7 @@
         <ldap:principal>uid=gormanis,ou=Users,o=5c372cb6e690384c3cd1cf95,dc=jumpcloud,dc=com</ldap:principal>
         <ldap:use-ssl>false</ldap:use-ssl>
         <ldap:use-dns-srv-records>false</ldap:use-dns-srv-records>
-        <ldap:credentials>eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..fGOnmU31iYIbODjheMMPaQ.eFYEuFLM_mlrboSj1wmvXA.DnvPNnONeGwQvyNZII_OTQ</ldap:credentials>
+        <ldap:credentials>eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..JPmlTzJKPeKi3zvbCRmNhw.eJFAkKLGPVTkrY89FznbNQ.3IrVR1RMjopDlf9lUqfLDg</ldap:credentials>
         <ldap:authenticationMeth>simple</ldap:authenticationMeth>
         <ldap:description>JumpCloud</ldap:description>
         <ldap:name>JumpCloud</ldap:name>
@@ -18,7 +18,7 @@
         <ldap:principal>CORP\Administrator</ldap:principal>
         <ldap:use-ssl>false</ldap:use-ssl>
         <ldap:use-dns-srv-records>false</ldap:use-dns-srv-records>
-        <ldap:credentials>eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..TyygcH2RLqap1PIg9jVdbQ.C707ScTpb3hCk_nQwYfU-A.1528nagA9fm4P9_8NxgdJw</ldap:credentials>
+        <ldap:credentials>eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..sPoSpgHlONVij2culYnE_w.2whMTvSuztAU08AJL3eTWw.BJEAYlXHUBmb5SuqZEq6eg</ldap:credentials>
         <ldap:authenticationMeth>simple</ldap:authenticationMeth>
         <ldap:description>corp.geolykos.com</ldap:description>
         <ldap:name>corp.geolykos.com</ldap:name>

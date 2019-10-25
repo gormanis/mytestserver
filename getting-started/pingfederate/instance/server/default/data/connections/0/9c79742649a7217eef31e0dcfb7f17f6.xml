@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<md:EntityDescriptor entityID="https://samltest.id/saml/sp" urn:name="SamlTest.id" ID="RpprdkS7usFJJUY2gfrwtkGJLnP" urn:baseUrl="https://samltest.id" urn:LogLevel="STANDARD" urn:isActive="true" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:urn="urn:sourceid.org:saml2:metadata-extension:v2">
+    <md:Extensions>
+        <urn:EntityExtension PFVersion="9.3.0.9" LicenseGroup="">
+            <urn:DigitialSignatureAliases SigningKeyAlias="iutq6b1sj6dgdebhtngjtva4c" includeX509inXmlSig="false" includeRawKeyInXmlSig="false" SigningAlgorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256">
+                <urn:ActiveVerificationCertAlias>sp68sihjuc9t89crhtisfqdg7</urn:ActiveVerificationCertAlias>
+            </urn:DigitialSignatureAliases>
+            <urn:Encryption>
+                <urn:EncryptionPolicy EncryptionAlgorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" KeyTransportAlgorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" EncryptAssertion="false" EncryptSubjectNameID="false" SLOEncryptSubjectNameID="false"/>
+                <urn:DecryptionPolicy AssertionEncrypted="false" SubjectNameIDEncrypted="false" AttributeEncrypted="false" SLOSubjectNameIDEncrypted="false"/>
+            </urn:Encryption>
+            <urn:ConnectionTemplateProperties/>
+            <urn:MetadataUrlId xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <urn:enableAutoMetadataUpdate>false</urn:enableAutoMetadataUpdate>
+            <urn:AdditionalAllowedEntitiesConfiguration>
+                <urn:AllowAdditionalEntities>false</urn:AllowAdditionalEntities>
+                <urn:AllowAllEntities>false</urn:AllowAllEntities>
+                <urn:AdditionalAllowedEntities/>
+            </urn:AdditionalAllowedEntitiesConfiguration>
+        </urn:EntityExtension>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="false" WantAssertionsSigned="false" SignResponseAsRequired="true">
+        <md:Extensions>
+            <urn:RoleExtension ArtifactTimeoutSeconds="60" LastModified="2019-10-24T14:37:59.849+01:00">
+                <urn:IncomingBindings Artifact="true" POST="true" Redirect="true" SOAP="true"/>
+                <urn:EnabledProfiles IDPInitiatedSSO="true" IDPInitiatedSLO="false" SPInitiatedSSO="true" SPInitiatedSLO="false"/>
+                <urn:SP AssertionValidityAfterMinutes="5" AssertionValidityBeforeMinutes="5" ConnectionTargetType="Standard" EnableCDCDuringSSO="false">
+                    <urn:AdapterToAssertionMapping AbortIfNotFoundInAnyDataSources="false" RestrictVirtualServerIds="false" AdapterInstanceId="HTLMFormP14C">
+                        <urn:DefaultAttributeMapping>
+                            <urn:AttributeMap Name="customAttr1" Type="Adapter" Value="customAttr1"/>
+                            <urn:AttributeMap Name="declaredAttr1" Type="Adapter" Value="declaredAttr1"/>
+                            <urn:AttributeMap Name="SAML_SUBJECT" Type="Adapter" Value="username"/>
+                            <urn:TokenAuthorizationIssuanceCriteria/>
+                        </urn:DefaultAttributeMapping>
+                    </urn:AdapterToAssertionMapping>
+                    <urn:NameIdentifierMappingType IncludeAdditionalAttributes="false" IncludeAdditionalTransientAttributes="false"/>
+                </urn:SP>
+            </urn:RoleExtension>
+        </md:Extensions>
+        <md:ArtifactResolutionService index="1" Location="/Shibboleth.sso/Artifact/SOAP" Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"/>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+        <md:AssertionConsumerService index="1" Location="/Shibboleth.sso/SAML2/POST" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" isDefault="true"/>
+        <md:AssertionConsumerService index="3" Location="/Shibboleth.sso/SAML2/Artifact" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/>
+        <md:AssertionConsumerService index="4" Location="/Shibboleth.sso/SAML2/ECP" Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS"/>
+        <md:AttributeConsumingService index="0">
+            <md:ServiceName xml:lang="en">AttributeContract</md:ServiceName>
+            <md:RequestedAttribute Name="customAttr1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
+            <md:RequestedAttribute Name="declaredAttr1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
+        </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:RoleDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" xsi:type="urn:PFAvailableCertsRoleDescriptorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <urn:availableCert>
+            <urn:Base64EncodedCert>MIIERTCCAq2gAwIBAgIJAKGA/tV7hXUvMA0GCSqGSIb3DQEBCwUAMDUxMzAxBgNVBAMTKmlwLTE3Mi0zMS0yOC02NC51cy13ZXN0LTIuY29tcHV0ZS5pbnRlcm5hbDAeFw0xODA4MTgyMzI0MjVaFw0yODA4MTUyMzI0MjVaMDUxMzAxBgNVBAMTKmlwLTE3Mi0zMS0yOC02NC51cy13ZXN0LTIuY29tcHV0ZS5pbnRlcm5hbDCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBANoi7TtbPz5DD5b+pGj2bWHUWcOm135Dl+kfKWcJV6x4Z4VRMa33nwSfFg6U0DhPaA6rYr8BfcmCIY4V4cGlJkLNsYbgbZNnrLh23mj7jkaUeyv/DlGtLBcqr0gP6eDtcOf3MMGAkhROcicMj6i+uF6hqLDh4eNcpqEVDVn+ADBsosIPiAx+RkcyZkfAF3UeGEV5WTSiQw7qYpI7x+c4ViiBzV4waBgXjvNN72Dqlc01AylpmMKaUPfxIpPC+Ctr0bHu5xn7NxMS8Zt5NDWsP9T15qrpYatW68sXVyE5nJRYpiRiRbo8i7QpUEya+TkXEI8PVD3KBw9UwhqL8qPPe0T+EeaawF6BVRTEPc+Mn4lGBr4cCFcGk/PLHeyksgPdjNmO1g7y5TWQzu21WzkXRTWJq7wGwWeW6NrcNqweYPLbXEo0JlmHqunkUs+NsLQAFqSPX02P2xzkA/eOU2o/jN4jAPNpzqxJouvmiWGXl8Qy4U7vQZ0tGvlTDSltATOQ/QIDAQABo1gwVjA1BgNVHREELjAsgippcC0xNzItMzEtMjgtNjQudXMtd2VzdC0yLmNvbXB1dGUuaW50ZXJuYWwwHQYDVR0OBBYEFBBtS9YNKSIwViH37GJCTxjNBzLAMA0GCSqGSIb3DQEBCwUAA4IBgQDWXcaI7zMnhGsLVTUA6dgzZCa88QkN/Z6n7lCY2oaKj1neBAWA1Mxg7GBJsmLOrHN8ie0D/uKAF+7NqKCXYqd0PpTX7c1NICL92DvbugG/Ow50j5Dw6rU4Y8dPS7Y/T1ddbT2F9/5lHCIWP/O2E9HREJ0JAIbu/Mi0CE1qui2aSJMDWKuiGK63M/7fvP51m6xSJOfZBhmjgllIwEhIzfh4hVPhH0C7iqVls34UyLCZ8IZOCuGPJyTaJN6Pi3Uo1Otkz/1igN5MpQhVaeYG7SMgha6skTLrVXTt4CuMVsOZ6cG3kHqw8XZoRld+I50iyHqansf5qwzmNoPeXyjGRFQzV/EH3SUu8eAISTt9pfirwjKsVNHrmMRnQEB/hJYYbTWSsvdS8ghw7a/A0EKQPVaZGCP/hcpt9JMMb66y2L8VgBbb6aTsR+Uabf6aiMnj1UBMUz9yaMkakKM7e66uHdXUDZ/s8F5rPOGCK+O8O6EsLRf8XetRWLa1TXRDkJZVPX4=</urn:Base64EncodedCert>
+            <urn:alias>8xabeznc54pr0ykqc78gn7q56</urn:alias>
+        </urn:availableCert>
+        <urn:availableCert>
+            <urn:Base64EncodedCert>MIIERTCCAq2gAwIBAgIJAKmtzjCD1+tqMA0GCSqGSIb3DQEBCwUAMDUxMzAxBgNVBAMTKmlwLTE3Mi0zMS0yOC02NC51cy13ZXN0LTIuY29tcHV0ZS5pbnRlcm5hbDAeFw0xODA4MTgyMzI0MjNaFw0yODA4MTUyMzI0MjNaMDUxMzAxBgNVBAMTKmlwLTE3Mi0zMS0yOC02NC51cy13ZXN0LTIuY29tcHV0ZS5pbnRlcm5hbDCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBALhUlY3SkIOze+l8y6dBzM6p7B8OykJWlwizszU16Lih8D7KLhNJfahoVxbPxB3YFM/81PJLOeK2krvJ5zY6CJyQY3sPQAkZKI7I8qq9lmZ2g4QPqybNstXS6YUXJNUt/ixbbK/N97+LKTiSutbD1J7AoFnouMuLjlhN5VRZ43jez4xLSHVZaYuUFKn01Y9oLKbj46LQnZnJCAGpTgPqEQJr6GpVGw43bKyUpGoaPrdDRgRgtPMUWgFDkgcI3QiV1lsKfBs1t1E2UA7ACFnlJZpEuBtwgivzo3VeitiSaF3Jxh25EY5/vABpcgQQRz3RH2l8MMKdRsxb8VT3yh2S+CX55s+cN67LiCPr6f2u+KS1iKfB9mWN6o2S4lcmo82HIBbsuXJV0oA1HrGMyyc4Y9nng/I8iuAp8or1JrWRHQ+8NzO85DWK0rtvtLPxkvw0HK32glyuOP/9F05Z7+tiVIgn67buC0EdoUm1RSpibqmB1ST2PikslOlVbJuy4Ah93wIDAQABo1gwVjA1BgNVHREELjAsgippcC0xNzItMzEtMjgtNjQudXMtd2VzdC0yLmNvbXB1dGUuaW50ZXJuYWwwHQYDVR0OBBYEFAdsTxYfulJ5yunYtgYJHC9IcevzMA0GCSqGSIb3DQEBCwUAA4IBgQB3J6i7KreiHL8NPMglfWLHk1PZOgvIEEpKL+GRebvcbyqgcuc3VVPylq70VvGqhJxp1q/mzLfraUiypzfWFGm9zfwIg0H5TqRZYEPTvgIhIICjaDWRwZBDJG8D5G/KoV60DlUG0crPBlIuCCr/SRa5ZoDQqvucTfr3Rx4Ha6koXFSjoSXllR+jn4GnInhm/WH137a+v35PUcffNxfuehoGn6i4YeXF3cwJK4e35cOFW+dLbnaLk+Ty7HOGvpw86h979C6mJ9qEHYgq9rQyzlSPbLZGZSgVcIezunOaOsWm81BsXRNNJjzHGCqKf8RMhd8oZP55+2/SVRBwnkGyUNCuDPrJcymC95ZT2NW/KeWkz28HF2i31xQmecT2r3lQRSM8acvOXQsNEDCDvJvCzJT9c2AnsnO24r6arPXs/UWAxOI+MjclXPLkLD6uTHV+Oo8XZ7bOjegD5hL6/bKUWnNMurQNGrmi/jvqsCFLDKftl7ajuxKjtodnSuwhoY7NQy8=</urn:Base64EncodedCert>
+            <urn:alias>sp68sihjuc9t89crhtisfqdg7</urn:alias>
+        </urn:availableCert>
+    </md:RoleDescriptor>
+    <md:ContactPerson contactType="administrative"/>
+</md:EntityDescriptor>

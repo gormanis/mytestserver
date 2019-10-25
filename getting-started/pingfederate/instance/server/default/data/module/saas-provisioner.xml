@@ -3,9 +3,9 @@
     <entityId>https://geolykos-dev-ed.my.salesforce.com</entityId>
     <target id="Salesforce">
       <parameter name="CLIENT_ID" value="3MVG9fTLmJ60pJ5LwJ9lVSrRCGJqfGbU9i5fYnaFBhEwidGyjAeZ2hPACvhGRJ_UhOPQkkOubHO_4UFH0689."/>
-      <parameter name="CLIENT_SECRET" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..EdOAYMzvrTpjMm5x8Khf9w.MCNOy_My5HxqihQUgHhEbQvEkOAiCwyQEzvOTBUkLsgFGbYZWbI7rohJyC1g6d1UssVZWTL9JBmKkVhfxesh-hLW4sohxa1_w_cnSp1l1gU.UG0PzKd6ifwIfyxzS0zNtg"/>
-      <parameter name="OAUTH_ACCESS_TOKEN" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..M6D7ClTtZOMsMoWYun4eGQ.iyxOuvdMbHbUoYFBJu4_3Iyobhb5ROR1Qxn2f7N-d_qzxuYMDlOFxxMTbyMnbkhCkc3a6DD797acO9QaIqo15CPqslza6tRnovwyK2zSo6ENvfZ3RaqwV3LDiA8q1vfXDLZISctVr1eHfSIU7lkEtULnIPRFaunTCj-16sjBoC0.VEfQ3bDNtvAaK4zxuv6XPQ"/>
-      <parameter name="OAUTH_REFRESH_TOKEN" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..v6A7KC565suiBv3SjcWkVQ.LIjaXMNCGdNO9whySiy07dkk94nEH6DzTn7d28vdHHTYoBEwSR7J0e5S3EDiMd0tc5g2VHAz6mwxiy9odWpy5ZG8ZHCzDEiIFmLLEPaXtmKDYP4H7ZN85jZyVmgEWWSj.aBHllUwH5a7Z3wTOEYPmnw"/>
+      <parameter name="CLIENT_SECRET" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..82WiM7AaL3-yZhQfnu1R3Q.lAI1eXyzFoHfZu5ScnLs2j1RW4deegfHkbLgqf6KfP-50q2D9RmzZivLEpke5TSzAOfaqHJAMl6WwZ2HLT_ng0iK1bW7sWzGoYWoq3Hs0KY.w_X8mYJmyz7x4BLrgN5ILA"/>
+      <parameter name="OAUTH_ACCESS_TOKEN" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..Q1W8a1AWPprKyStcpowFUQ.Fw7psj_nOxVyPw7fIXS-yieVKJnR03FhRPSbN2fQRD8Nf0YkoqVdq-OixKbnPcowVJ9YzasrpEhRVL7sB84jV1SlTUOfb10C0hZANyqun07N34q6x21FwmK5is8u2qaMrpUSDOprCZEMeUPZu9TDRIuE1m__nsOZ4Lx3SfNz3nk.t4xJiK59q0ovxk8GCUt3eg"/>
+      <parameter name="OAUTH_REFRESH_TOKEN" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..wLG9U50rUiokYSJB0n_UDw.vSqshPclex7cWx5OVKMzqGj_1N5zSaptyVxDIg2RyXn6myVKM0hsu5sKl8CVKhosGq1ySmmScKHShIJHdh67KE1Mk5qhLeE-8Inm9ynP8-diBFCTBPuNsEDAeumFhvlg.o4tx3_68A7FQ7MGjq9y8vQ"/>
       <parameter name="SUBDOMAIN" value="geolykos-dev-ed.my"/>
       <parameter name="Provisioning Options" value=""/>
       <parameter name="CREATE_NEW_USERS" value="true"/>
@@ -1282,7 +1282,7 @@
     <target id="PingOneForCustomers">
       <parameter name="ENVIRONMENT_ID" value="f2ea1367-f6c9-47e5-8791-152bb7ca1b2c"/>
       <parameter name="CLIENT_ID" value="a97a401c-70d0-49de-813b-1cc8a1a22a6e"/>
-      <parameter name="CLIENT_SECRET" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..tUuk18ENw0snem-DO5vJDw.mrdzk_n9EHlbYCKeC7XwTfHJq2vX1VmN2vggO2RzM3Ms7lxk4TVZP7kuTei1tOGdtEdOMWyvegnJfwFsTB64BDAV34uIHDI4G8wakqbtRCw.jGLDOHWOJmnaM-tnVBeKfw"/>
+      <parameter name="CLIENT_SECRET" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..JV8naB_EDuhgayIfeIWiJw.fGmXVwZ8sX5aJupiEke0CTuOSNGFxJ7UCSGrCPCs8tQCx2wCg06up5MKtH7cP9AeRDoaJTYfAngSvrzUeftp9Hh2JaLksgHC8Hy1qZ3193M.DiaPejIn6wGmxZbf2CNQ0A"/>
       <parameter name="Provisioning Options" value=""/>
       <parameter name="CREATE_USERS_PROV_OPT" value="true"/>
       <parameter name="UPDATE_USERS_PROV_OPT" value="true"/>

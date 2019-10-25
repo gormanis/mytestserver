@@ -9,7 +9,7 @@
         <con:item name="admin">Admin permissions</con:item>
         <con:item name="email">Email Address access</con:item>
     </con:map>
-    <con:item name="lastUpdated">1563440769595</con:item>
+    <con:item name="lastUpdated">1571672493011</con:item>
     <con:map name="scope-group-descriptions"/>
     <con:map name="scope-group-mappings"/>
     <con:list name="dynamic-common-scopes"/>

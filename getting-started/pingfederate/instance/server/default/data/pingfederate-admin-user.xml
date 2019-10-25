@@ -24,9 +24,9 @@
         <adm:department/>
         <adm:description/>
         <adm:admin-manager>false</adm:admin-manager>
-        <adm:admin>true</adm:admin>
+        <adm:admin>false</adm:admin>
         <adm:crypto-manager>false</adm:crypto-manager>
-        <adm:auditor>false</adm:auditor>
+        <adm:auditor>true</adm:auditor>
         <adm:active>true</adm:active>
         <adm:password-change-required>false</adm:password-change-required>
     </adm:user>

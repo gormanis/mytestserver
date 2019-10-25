@@ -2,6 +2,7 @@
 <con:config xmlns:con="http://www.sourceid.org/2004/05/config">
     <con:map name="saml2-subject-name-formats">
         <!-- <con:item name="saml2:custom:subject:format:1:description">saml2:custom:subject:format:1:value</con:item> -->
+        <con:item name="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified">urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified</con:item>
     </con:map>
     <con:map name="saml11-subject-name-formats">
         <!-- <con:item name="saml11:custom:subject:format:1:description">saml11:custom:subject:format:1:value</con:item>  -->

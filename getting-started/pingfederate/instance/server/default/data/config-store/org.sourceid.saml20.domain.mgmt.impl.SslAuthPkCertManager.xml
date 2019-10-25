@@ -11,4 +11,7 @@
     <con:map name="https://geolykos-dev-ed.my.salesforce.com2"/>
     <con:map name="PingOne For Customers Connector"/>
     <con:map name="X509"/>
+    <con:map name="https://samltest.id/saml/sp"/>
+    <con:map name="george"/>
+    <con:map name="https://slack.com/"/>
 </con:config>

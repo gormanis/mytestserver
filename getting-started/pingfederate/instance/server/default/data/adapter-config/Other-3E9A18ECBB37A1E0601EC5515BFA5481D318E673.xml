@@ -3,7 +3,7 @@
     <urn:Fields>
         <urn:Field name="Environment ID">683dc220-bc54-4354-b911-650e62e1466c</urn:Field>
         <urn:Field name="Client ID">7490b447-fcdf-46d4-afb0-6d7f89a7b745</urn:Field>
-        <urn:Field name="Client Secret">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..XUE261EN6pKNEKLuPhpjOA.cobGKfPQJ-j3FmLNd6BunNgMMAaFV-Vec2rlBUY1JoY13AfXMOhdN2lnXItLVVNrO41Vi7A5fDqO4zQhHxCnrqBgIKflCo1vnaJJcR1foc4.i_Uh5TPESgTw9h-F83OJJg</urn:Field>
+        <urn:Field name="Client Secret">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRzh5N0RnOENOaCIsInZlcnNpb24iOiI5LjMuMC45In0..3wVI_XX0XWcjIvSROrL8pA.Pm-R9nRnz_tCpGwZlY0NKiK0WWC7F84sFGy3UjopEfDG2K0G5ejPOyY_WtHd9-8KyWrHO_qA4UX_yt2nfFUCOR-rr0kyvK07YMziKOLWB48.yYlfoze46ooQipzKmCLSIA</urn:Field>
         <urn:Field name="PingOne API Service">https://api.pingone.eu/v1</urn:Field>
         <urn:Field name="PingOne Authorization Service">https://auth.pingone.eu</urn:Field>
         <urn:Field name="Read Timeout">10000</urn:Field>
@@ -28,6 +28,15 @@
         <urn:Field name="Custom Proxy Port"/>
     </urn:AdvancedFields>
     <urn:Tables>
-        <urn:Table name="Custom Attributes Details"/>
+        <urn:Table name="Custom Attributes Details">
+            <urn:Row>
+                <urn:Field name="Local Attribute">customAttr1</urn:Field>
+                <urn:Field name="PingOne for Customers Attribute">/customAttr1/name</urn:Field>
+            </urn:Row>
+            <urn:Row>
+                <urn:Field name="Local Attribute">declaredAttr1</urn:Field>
+                <urn:Field name="PingOne for Customers Attribute">/declaredAttr1</urn:Field>
+            </urn:Row>
+        </urn:Table>
     </urn:Tables>
 </urn:AdapterConfiguration>

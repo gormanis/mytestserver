@@ -14,6 +14,7 @@
         <con:item name="HTLMFormP14C">com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter</con:item>
         <con:item name="WS1">com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter</con:item>
         <con:item name="SFCloudIDConnector">com.pingidentity.adapters.salesforceidp.IdPSalesforceAdapter</con:item>
+        <con:item name="HTMLFormSlack">com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter</con:item>
     </con:map>
     <con:map name="IdpAdapterInstanceParents">
         <con:item name="HTMLFormSF">HTMLFormAdapter</con:item>

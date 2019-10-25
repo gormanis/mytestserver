@@ -11,6 +11,13 @@
         <mu:id>CrdIL7Tw3CiEmiavKEb4r2f4C</mu:id>
         <mu:name>AWS</mu:name>
         <mu:metadataUrl>https://signin.aws.amazon.com/static/saml-metadata.xml</mu:metadataUrl>
+        <mu:certAlias xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <mu:validateSignature>false</mu:validateSignature>
+    </mu:metadataUrlCertType>
+    <mu:metadataUrlCertType>
+        <mu:id>lQ7jwMiEejiWxLRAMonVGAIUe</mu:id>
+        <mu:name>SamlTest.ID</mu:name>
+        <mu:metadataUrl>https://samltest.id/saml/sp</mu:metadataUrl>
         <mu:validateSignature>false</mu:validateSignature>
     </mu:metadataUrlCertType>
 </mu:metadataUrls>

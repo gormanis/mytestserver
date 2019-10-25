@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<md:EntityDescriptor entityID="https://slack.com/" urn:name="changed-whadtest.slack.com" ID="RFJVSz6SKIyhaCn5lZIuwOMEXiG" urn:baseUrl="https://changed-whadtest.slack.com" urn:LogLevel="STANDARD" urn:isActive="true" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:urn="urn:sourceid.org:saml2:metadata-extension:v2">
+    <md:Extensions>
+        <urn:EntityExtension PFVersion="9.3.0.9" LicenseGroup="">
+            <urn:DigitialSignatureAliases SigningKeyAlias="iutq6b1sj6dgdebhtngjtva4c" includeX509inXmlSig="false" includeRawKeyInXmlSig="false" SigningAlgorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+            <urn:Encryption>
+                <urn:EncryptionPolicy EncryptionAlgorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" KeyTransportAlgorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" EncryptAssertion="false" EncryptSubjectNameID="false" SLOEncryptSubjectNameID="false"/>
+                <urn:DecryptionPolicy AssertionEncrypted="false" SubjectNameIDEncrypted="false" AttributeEncrypted="false" SLOSubjectNameIDEncrypted="false"/>
+            </urn:Encryption>
+            <urn:ConnectionTemplateProperties>
+                <urn:Property name="metadataFile" value="PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPG1kOkVudGl0eURlc2NyaXB0b3IgeG1sbnM6bWQ9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDptZXRhZGF0YSIKCWVudGl0eUlEPSJodHRwczovL3NsYWNrLmNvbS8iIGNhY2hlRHVyYXRpb249IlBUMTQ0ME0iCglJRD0ibll0RTNwdThmb2ZONGE1Wl9TVDVGOGpET2JoIj4KCTxtZDpTUFNTT0Rlc2NyaXB0b3IgQXV0aG5SZXF1ZXN0c1NpZ25lZD0iZmFsc2UiIFdhbnRBc3NlcnRpb25zU2lnbmVkPSJ0cnVlIiBwcm90b2NvbFN1cHBvcnRFbnVtZXJhdGlvbj0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOnByb3RvY29sIj4KICAgICAgPG1kOk5hbWVJREZvcm1hdD51cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6bmFtZWlkLWZvcm1hdDpwZXJzaXN0ZW50PC9tZDpOYW1lSURGb3JtYXQ+CgkJPG1kOkFzc2VydGlvbkNvbnN1bWVyU2VydmljZSBpc0RlZmF1bHQ9InRydWUiCgkJCUJpbmRpbmc9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpiaW5kaW5nczpIVFRQLVBPU1QiCgkJCUxvY2F0aW9uPSJodHRwczovL2NoYW5nZWQtd2hhZHRlc3Quc2xhY2suY29tL3Nzby9zYW1sIgoJCQlpbmRleD0iMCIgLz4KCTwvbWQ6U1BTU09EZXNjcmlwdG9yPgo8L21kOkVudGl0eURlc2NyaXB0b3I+"/>
+            </urn:ConnectionTemplateProperties>
+            <urn:MetadataUrlId xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <urn:enableAutoMetadataUpdate>false</urn:enableAutoMetadataUpdate>
+            <urn:AdditionalAllowedEntitiesConfiguration>
+                <urn:AllowAdditionalEntities>false</urn:AllowAdditionalEntities>
+                <urn:AllowAllEntities>false</urn:AllowAllEntities>
+                <urn:AdditionalAllowedEntities/>
+            </urn:AdditionalAllowedEntitiesConfiguration>
+        </urn:EntityExtension>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="false" WantAssertionsSigned="true" SignResponseAsRequired="false">
+        <md:Extensions>
+            <urn:RoleExtension ArtifactTimeoutSeconds="60" LastModified="2019-10-24T16:16:08.695+01:00">
+                <urn:IncomingBindings Artifact="false" POST="true" Redirect="true" SOAP="false"/>
+                <urn:EnabledProfiles IDPInitiatedSSO="true" IDPInitiatedSLO="false" SPInitiatedSSO="true" SPInitiatedSLO="false"/>
+                <urn:SP AssertionValidityAfterMinutes="5" AssertionValidityBeforeMinutes="5" ConnectionTargetType="Slack" EnableCDCDuringSSO="false">
+                    <urn:AdapterToAssertionMapping AbortIfNotFoundInAnyDataSources="false" RestrictVirtualServerIds="false" AdapterInstanceId="HTMLFormSlack">
+                        <urn:DefaultAttributeMapping>
+                            <urn:AttributeMap Name="User.Email" Type="Adapter" Value="mail"/>
+                            <urn:AttributeMap Name="SAML_SUBJECT" Type="Adapter" Value="username"/>
+                            <urn:AttributeMap Name="SAML_NAME_FORMAT" Type="Text" Value="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
+                            <urn:TokenAuthorizationIssuanceCriteria/>
+                        </urn:DefaultAttributeMapping>
+                    </urn:AdapterToAssertionMapping>
+                    <urn:NameIdentifierMappingType IncludeAdditionalAttributes="false" IncludeAdditionalTransientAttributes="false"/>
+                </urn:SP>
+            </urn:RoleExtension>
+        </md:Extensions>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+        <md:AssertionConsumerService index="0" Location="/sso/saml" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" isDefault="true"/>
+        <md:AttributeConsumingService index="0">
+            <md:ServiceName xml:lang="en">AttributeContract</md:ServiceName>
+            <md:RequestedAttribute Name="User.Email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"/>
+            <md:RequestedAttribute Name="SAML_NAME_FORMAT" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"/>
+        </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:RoleDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" xsi:type="urn:PFAvailableCertsRoleDescriptorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <md:ContactPerson contactType="administrative"/>
+</md:EntityDescriptor>

@@ -34,6 +34,12 @@
                 <urn:Field name="Confirm Password">WdEjf0rD7VtQJCxctafavYCgp8hePeXMWfdARvBv258.EIq7OYc1.2</urn:Field>
                 <urn:Field name="Relax Password Requirements">false</urn:Field>
             </urn:Row>
+            <urn:Row>
+                <urn:Field name="Username">georgeormanis@pingidentity.com</urn:Field>
+                <urn:Field name="Password">4GeBk4npb-YyrJYAUCY2XGr2MLdjopGa5DGeifQOlTA.GIkkwS8-.2</urn:Field>
+                <urn:Field name="Confirm Password">SxRuz08x7hQbUEZxAAcP7KLBTPvnFkNvqFkyWWm3P-c.iNDEtJ9H.2</urn:Field>
+                <urn:Field name="Relax Password Requirements">false</urn:Field>
+            </urn:Row>
         </urn:Table>
     </urn:Tables>
 </urn:PluginConfiguration>

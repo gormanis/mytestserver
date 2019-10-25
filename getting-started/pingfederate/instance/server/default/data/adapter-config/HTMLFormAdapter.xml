@@ -91,10 +91,10 @@
     <urn:Tables>
         <urn:Table name="Credential Validators">
             <urn:Row>
-                <urn:Field name="Password Credential Validator Instance">UserPass</urn:Field>
+                <urn:Field name="Password Credential Validator Instance">GeolykosPCV</urn:Field>
             </urn:Row>
             <urn:Row>
-                <urn:Field name="Password Credential Validator Instance">GeolykosPCV</urn:Field>
+                <urn:Field name="Password Credential Validator Instance">UserPass</urn:Field>
             </urn:Row>
         </urn:Table>
     </urn:Tables>
@@ -108,12 +108,6 @@
         <urn1:AttributeMap Name="policy.action" Type="Adapter" Value="policy.action" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
         <urn1:AttributeMap Name="givenName" Type="Adapter" Value="givenName" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
         <urn1:AttributeMap Name="username" Type="Adapter" Value="username" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
-        <urn1:AttributeSource Id="GeolykosAD" Description="GeolykosAD" Type="LDAP" DataSourceId="LDAP-CCE90DCFE90269C4C060D97ABD3A1A3DD8E532B3" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
-            <urn1:Parameter Name="filter" Value="cn=${mail}"/>
-            <urn1:Parameter Name="search_base" Value="CN=Users,DC=corp,DC=geolykos,DC=com"/>
-            <urn1:Parameter Name="search_scope" Value="SUBTREE_SCOPE"/>
-            <urn1:Parameter Name="memberof_nested_group" Value="false"/>
-        </urn1:AttributeSource>
         <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
     </urn:AttributeMapping>
 </urn:AdapterConfiguration>
