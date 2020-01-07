@@ -282,3 +282,5 @@ do
    # if it doesn't work, you may want to take a look at this:
    #    http://developer.java.sun.com/developer/bugParade/bugs/4465334.html
 done
+
+echo "run.sh is running successfully"
