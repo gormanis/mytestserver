@@ -271,6 +271,7 @@ do
       -Dpf.java="$JAVA" \
       -Dpf.java.opts="$JAVA_OPTS -Drun.properties=$runprops" \
       -Dpf.classpath="$PF_CLASSPATH" \
+      -Djavax.net.debug=ssl \
       -classpath "$PF_CLASSPATH" \
       org.pingidentity.RunPF "$@" &
    PID=$!
